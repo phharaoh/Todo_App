@@ -132,6 +132,10 @@ class _RegisterState extends State<Register> {
                   const SizedBox(
                     height: 15,
                   ),
+                  //  Checkbox(value: , onChanged: []),
+                  // DropdownButtonFormField(items: [], onChanged: onChanged),
+                  
+
                   SizedBox(
                     width: double.infinity,
                     height: 45,

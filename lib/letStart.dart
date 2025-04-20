@@ -78,7 +78,7 @@ class Letstart extends StatelessWidget {
                 )),
               ),
               child: const Text(
-                'Register',
+                'Let’s Start',
                 style: TextStyle(
                     fontSize: 19,
                     fontWeight: FontWeight.w300,

@@ -87,28 +87,23 @@ class _LogInState extends State<LogIn> {
                     height: 15,
                   ),
                   SizedBox(
-                    width: double.infinity,
+                    width: 331,
                     height: 45,
                     child: ElevatedButton(
-                      onPressed: () {
-                        formKey.currentState!.validate();
-                      },
+                      onPressed: () {},
                       style: ButtonStyle(
-                        textStyle: const WidgetStatePropertyAll(
-                            TextStyle(color: Colors.white)),
-                        elevation: const WidgetStatePropertyAll(3),
-                        backgroundColor: const WidgetStatePropertyAll(
-                            Color.fromARGB(255, 51, 189, 55)),
+                        backgroundColor:
+                            WidgetStatePropertyAll(AppColor.buttonColor),
                         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                          borderRadius: BorderRadius.circular(14.0),
                         )),
                       ),
                       child: const Text(
                         'Login',
                         style: TextStyle(
-                          fontStyle: FontStyle.italic,
-                          fontSize: 20,
-                        ),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.white),
                       ),
                     ),
                   ),

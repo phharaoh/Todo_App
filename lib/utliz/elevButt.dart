@@ -2,7 +2,8 @@ import 'color.dart';
 import 'package:flutter/material.dart';
 
 class Elevbutt {
-  static Widget elevatedButt = SizedBox(
+  static Widget elevatedButt = 
+  SizedBox(
     width: 331,
     height: 45,
     child: ElevatedButton(

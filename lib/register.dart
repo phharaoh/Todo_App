@@ -2,7 +2,6 @@ import 'login.dart';
 import 'package:flutter/material.dart';
 import 'package:register_task/utliz/color.dart';
 
-
 class Register extends StatefulWidget {
   const Register({super.key});
 
@@ -17,6 +16,7 @@ class _RegisterState extends State<Register> {
       TextEditingController();
 
   bool _obscureText = true;
+  bool _obscureConText = true;
 
   @override
   void dispose() {
@@ -28,7 +28,6 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(children: [
           const SizedBox(
@@ -104,7 +103,7 @@ class _RegisterState extends State<Register> {
                     ),
                     TextFormField(
                       controller: confirmPasswordController,
-                      obscureText: _obscureText,
+                      obscureText: _obscureConText,
                       validator: (String? value) {
                         if (value == null ||
                             value.isEmpty ||
@@ -120,11 +119,11 @@ class _RegisterState extends State<Register> {
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
-                              _obscureText = !_obscureText;
+                              _obscureConText = !_obscureConText;
                             });
                           },
                           child: Icon(
-                            _obscureText
+                            _obscureConText
                                 ? Icons.lock_outline_rounded
                                 : Icons.lock_open_sharp,
                           ),
@@ -136,53 +135,30 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                     ),
-
                     const SizedBox(
-                      height: 15,
+                      height: 20,
+
                     ),
-                    //  Checkbox(value: , onChanged: []),
-                    // DropdownButtonFormField(
-                    //   decoration: InputDecoration(
-                    //     border: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(15.0),
-                    //     )
-                    //   ),
-
-                    //   items: const [
-                    //     DropdownMenuItem(
-                    //       value: 'Male',
-                    //       child: Text('Male'),
-                    //     ),
-                    //     DropdownMenuItem(
-                    //       value: 'Male',
-                    //       child: Text('Female'),
-                    //     ),
-                    //   ],
-                    //   onChanged: (String? value) {},
-                    // ),
-
                     SizedBox(
-                      width: double.infinity,
+                      width: 331,
                       height: 45,
                       child: ElevatedButton(
                         onPressed: () {
                           formKey.currentState!.validate();
                         },
                         style: ButtonStyle(
-                          textStyle: const WidgetStatePropertyAll(
-                              TextStyle(color: Colors.white)),
-                          elevation: const WidgetStatePropertyAll(3),
-                          backgroundColor:  WidgetStatePropertyAll(
-                             AppColor.buttonColor),
+                          backgroundColor:
+                              WidgetStatePropertyAll(AppColor.buttonColor),
                           shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+                            borderRadius: BorderRadius.circular(14.0),
                           )),
                         ),
                         child: const Text(
                           'Register',
                           style: TextStyle(
-                            fontSize: 20,
-                          ),
+                              fontSize: 19,
+                              fontWeight: FontWeight.w300,
+                              color: Colors.white),
                         ),
                       ),
                     ),
@@ -218,3 +194,22 @@ class _RegisterState extends State<Register> {
     );
   }
 }
+
+Widget a = SizedBox(
+  width: 331,
+  height: 45,
+  child: ElevatedButton(
+    onPressed: () {},
+    style: ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(AppColor.buttonColor),
+      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14.0),
+      )),
+    ),
+    child: const Text(
+      'Register',
+      style: TextStyle(
+          fontSize: 19, fontWeight: FontWeight.w300, color: Colors.white),
+    ),
+  ),
+);

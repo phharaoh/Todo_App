@@ -1,5 +1,10 @@
-import 'register.dart';
+import 'splash.dart';
+import 'utliz/color.dart';
 import 'package:flutter/material.dart';
+
+
+
+
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +18,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        // fontFamily: AppFont.fontFamily,
+        scaffoldBackgroundColor: AppColor.scaffoldColor,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Register(),
+      home: const SplashScreen(),
     );
   }
 }

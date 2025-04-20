@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:register_task/utliz/color.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -15,7 +16,7 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.scaffoldColor,
       body: Column(children: [
         const SizedBox(
           width: double.infinity,

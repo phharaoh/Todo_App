@@ -1,5 +1,5 @@
+import 'utliz/color.dart';
 import 'package:flutter/material.dart';
-import 'package:register_task/utliz/color.dart';
 
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({super.key});
@@ -9,6 +9,12 @@ class AddTaskScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.scaffoldColor,
+        leading: InkWell(
+          child: Image.asset('assets/image/ArrowIcon.png'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
         centerTitle: true,
         title: const Text(
           "Add Task",
@@ -18,12 +24,14 @@ class AddTaskScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
+            margin: const EdgeInsets.only(top: 30),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
             width: 261,
             height: 207,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
             child: Image.asset(
               'assets/image/pro.png',
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
             ),
           ),
           const SizedBox(

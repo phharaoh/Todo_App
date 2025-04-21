@@ -2,9 +2,6 @@ import 'utliz/font.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -14,24 +11,20 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.scaffoldColor,
         leading: Container(
-          color: Colors.black,
-          margin: const EdgeInsets.only(
-            left: 20,
-          ),
-          width: 190,
-          height: 60,
-          child: Row(
+          margin: const EdgeInsets.only(left: 12, top: 5),
+          child: const Row(
             children: [
               CircleAvatar(
-                child: Image.asset(
+                radius: 40,
+                backgroundImage: AssetImage(
                   "assets/image/pro.png",
-                  // fit: BoxFit.fill,
                 ),
               ),
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: 5,
               ),
-              const Column(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "Hello!",
@@ -45,7 +38,7 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           InkWell(
-            onTap:() {},
+            onTap: () {},
             child: Container(
               margin: const EdgeInsets.only(right: 15),
               width: 24,

@@ -48,13 +48,15 @@ class _LogInState extends State<LogIn> {
                         return null;
                       },
                       decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
                         prefixIcon: Icon(Icons.person_2_outlined),
                         hintText: 'User name',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
                           borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 15.0,
+                            color: Color(0xffCDCDCD),
+                            width: 1.0,
                           ),
                         ),
                       ),
@@ -74,6 +76,8 @@ class _LogInState extends State<LogIn> {
                         return null;
                       },
                       decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -90,6 +94,10 @@ class _LogInState extends State<LogIn> {
                         hintText: 'Enter your password',
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                          borderSide: BorderSide(
+                            color: Color(0xffCDCDCD),
+                            width: 1.0,
+                          ),
                         ),
                       ),
                     ),
@@ -101,9 +109,7 @@ class _LogInState extends State<LogIn> {
                       height: 45,
                       child: ElevatedButton(
                         onPressed: () {
-                          setState(() {
-                            formKey.currentState!.validate();
-                          });
+                          formKey.currentState!.validate();
 
                           // Navigator.of(context).push(MaterialPageRoute(
                           //     builder: (context) => const HomeScreen()));
@@ -142,8 +148,7 @@ class _LogInState extends State<LogIn> {
                         ),
                         TextButton(
                           onPressed: () {
-                            // Navigator.of(context).pop(MaterialPageRoute(
-                            //     builder: (context) => const Register()));
+                            Navigator.of(context).pop();
                           },
                           child: const Text(
                             'Register',

@@ -1,6 +1,8 @@
 import 'home1.dart';
+import 'login.dart';
 import 'package:flutter/material.dart';
 import 'package:register_task/utliz/color.dart';
+
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -59,14 +61,16 @@ class _RegisterState extends State<Register> {
                         }
                         return null;
                       },
-                      decoration: const InputDecoration(
-                        prefixIcon: Icon(Icons.person_2_outlined),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        prefixIcon: Image.asset('assets/image/Profile.png'),
                         hintText: 'User name',
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
                           borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 15.0,
+                            color: Color(0xffCDCDCD),
+                            width: 1.0,
                           ),
                         ),
                       ),
@@ -87,6 +91,8 @@ class _RegisterState extends State<Register> {
                         return null;
                       },
                       decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -103,6 +109,10 @@ class _RegisterState extends State<Register> {
                         hintText: 'Enter your password',
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                          borderSide: BorderSide(
+                            color: Color(0xffCDCDCD),
+                            width: 1.0,
+                          ),
                         ),
                       ),
                     ),
@@ -124,6 +134,8 @@ class _RegisterState extends State<Register> {
                         return null;
                       },
                       decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -140,6 +152,10 @@ class _RegisterState extends State<Register> {
                         hintText: 'Confirm Password',
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                          borderSide: BorderSide(
+                            color: Color(0xffCDCDCD),
+                            width: 1.0,
+                          ),
                         ),
                       ),
                     ),
@@ -151,9 +167,7 @@ class _RegisterState extends State<Register> {
                       height: 45,
                       child: ElevatedButton(
                         onPressed: () {
-                          setState(() {
-                            formKey.currentState!.validate();
-                          });
+                          formKey.currentState!.validate();
 
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const HomeScreen()));
@@ -192,8 +206,8 @@ class _RegisterState extends State<Register> {
                         ),
                         TextButton(
                           onPressed: () {
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //     builder: (context) => const LogIn()));
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const LogIn()));
                           },
                           child: const Text(
                             'Login',

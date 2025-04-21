@@ -1,7 +1,9 @@
+import 'utliz/font.dart';
+import 'utliz/color.dart';
 import 'package:flutter/material.dart';
-import 'package:register_task/utliz/font.dart';
-import 'package:register_task/utliz/color.dart';
-// ignore_for_file: prefer_const_constructors
+
+
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -42,11 +44,14 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 15),
-            width: 24,
-            height: 24,
-            child: Image.asset("assets/image/plusicon.png"),
+          InkWell(
+            onTap:() {},
+            child: Container(
+              margin: const EdgeInsets.only(right: 15),
+              width: 24,
+              height: 24,
+              child: Image.asset("assets/image/plusicon.png"),
+            ),
           ),
         ],
       ),
@@ -56,8 +61,8 @@ class HomeScreen extends StatelessWidget {
             margin: const EdgeInsets.only(top: 50, left: 20),
             width: 325,
             height: 100,
-            child: Column(
-              children: const [
+            child: const Column(
+              children: [
                 Text(
                   "There are no tasks yet,",
                   style: AppFont.textStyle,

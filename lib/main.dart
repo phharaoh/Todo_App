@@ -1,6 +1,11 @@
+import 'UpdatePro.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
-import 'package:register_task/home1.dart';
+import 'package:register_task/login.dart';
+import 'package:register_task/register.dart';
+
+
+
 
 
 void main() {
@@ -20,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home:  const UpdateScreen(),
     );
   }
 }

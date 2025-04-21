@@ -27,7 +27,7 @@ class Letstart extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Welcom To Do It !",
+                  "Welcome To Do It !",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color(0xff24252C),

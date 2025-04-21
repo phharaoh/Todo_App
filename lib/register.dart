@@ -1,4 +1,4 @@
-import 'login.dart';
+import 'home1.dart';
 import 'package:flutter/material.dart';
 import 'package:register_task/utliz/color.dart';
 
@@ -28,15 +28,23 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF3F5F4),
       body: SingleChildScrollView(
         child: Column(children: [
-          const SizedBox(
+          Container(
             width: double.infinity,
             height: 200,
-            child: Image(
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20))),
+            child: Image.asset(
+              'assets/image/pro.png',
               fit: BoxFit.cover,
-              image: AssetImage('assets/pro.png'),
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -137,14 +145,18 @@ class _RegisterState extends State<Register> {
                     ),
                     const SizedBox(
                       height: 20,
-
                     ),
                     SizedBox(
                       width: 331,
                       height: 45,
                       child: ElevatedButton(
                         onPressed: () {
-                          formKey.currentState!.validate();
+                          setState(() {
+                            formKey.currentState!.validate();
+                          });
+
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
                         },
                         style: ButtonStyle(
                           backgroundColor:
@@ -168,22 +180,29 @@ class _RegisterState extends State<Register> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Already have an account?"),
+                        const Text(
+                          "Already have an account?",
+                          style: TextStyle(
+                              color: Color(0xff24252C),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w200),
+                        ),
                         const SizedBox(
-                          width: 5,
+                          width: 3,
                         ),
                         TextButton(
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const LogIn()));
-                            },
-                            child: const Text(
-                              'Login',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            )),
+                          onPressed: () {
+                            // Navigator.of(context).push(MaterialPageRoute(
+                            //     builder: (context) => const LogIn()));
+                          },
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                                color: Color(0xff24252C),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w900),
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -194,22 +213,3 @@ class _RegisterState extends State<Register> {
     );
   }
 }
-
-Widget a = SizedBox(
-  width: 331,
-  height: 45,
-  child: ElevatedButton(
-    onPressed: () {},
-    style: ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(AppColor.buttonColor),
-      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(14.0),
-      )),
-    ),
-    child: const Text(
-      'Register',
-      style: TextStyle(
-          fontSize: 19, fontWeight: FontWeight.w300, color: Colors.white),
-    ),
-  ),
-);

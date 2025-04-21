@@ -59,6 +59,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+  - assets/image/
   - assets/image/pro.png
   - assets/image/splashimage.png
   - assets/image/lets.png
@@ -75,10 +76,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  # - family: Lexend Deca
-  #   fonts:
-  #   - asset: asset/fonts/Lexend Deca/LexendDeca-Light.ttf
+  fonts:
+  - family: LexendDeca
+    fonts:
+    - asset: assets\font\Lexend Deca\LexendDeca-ExtraLight.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

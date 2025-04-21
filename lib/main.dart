@@ -1,9 +1,6 @@
-import 'splash.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
-
-
-
+import 'package:register_task/home1.dart';
 
 
 void main() {
@@ -18,12 +15,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // fontFamily: AppFont.fontFamily,
+        fontFamily: "LexendDeca",
         scaffoldBackgroundColor: AppColor.scaffoldColor,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }

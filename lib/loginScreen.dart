@@ -2,24 +2,24 @@ import 'home1.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
 
-class LogIn extends StatefulWidget {
-  const LogIn({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<LogIn> createState() => _LogInState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LogInState extends State<LogIn> {
+class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Scaffold(
-        backgroundColor: AppColor.scaffoldColor,
-        body: Column(children: [
+    return Scaffold(
+      backgroundColor: const Color(0xffF3F5F4),
+      body: SingleChildScrollView(
+        child: Column(children: [
           Container(
             width: double.infinity,
             height: 200,
@@ -48,12 +48,12 @@ class _LogInState extends State<LogIn> {
                         }
                         return null;
                       },
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(Icons.person_2_outlined),
+                        prefixIcon: Image.asset('assets/image/Profile.png'),
                         hintText: 'User name',
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
                           borderSide: BorderSide(
                             color: Color(0xffCDCDCD),
@@ -91,7 +91,6 @@ class _LogInState extends State<LogIn> {
                                 : Icons.lock_open_sharp,
                           ),
                         ),
-                        prefixIcon: const Icon(Icons.password),
                         hintText: 'Enter your password',
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -103,11 +102,10 @@ class _LogInState extends State<LogIn> {
                       ),
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
                     SizedBox(
                       width: 331,
-                      height: 45,
                       child: ElevatedButton(
                         onPressed: () {
                           formKey.currentState!.validate();
@@ -141,7 +139,7 @@ class _LogInState extends State<LogIn> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          "Dont Have Account ?",
+                          "Dont Have Account !",
                           style: TextStyle(
                               color: Color(0xff24252C),
                               fontSize: 14,
@@ -152,14 +150,14 @@ class _LogInState extends State<LogIn> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.of(context).pop();
+                            Navigator.pop(context);
                           },
                           child: const Text(
                             'Register',
                             style: TextStyle(
                                 color: Color(0xff24252C),
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w900),
                           ),
                         ),
                       ],

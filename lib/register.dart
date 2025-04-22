@@ -1,5 +1,5 @@
 import 'home1.dart';
-import 'login.dart';
+import 'loginScreen.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
 
@@ -104,7 +104,6 @@ class _RegisterState extends State<Register> {
                                 : Icons.lock_open_sharp,
                           ),
                         ),
-                        prefixIcon: const Icon(Icons.password),
                         hintText: 'Enter your password',
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -147,7 +146,6 @@ class _RegisterState extends State<Register> {
                                 : Icons.lock_open_sharp,
                           ),
                         ),
-                        prefixIcon: const Icon(Icons.password),
                         hintText: 'Confirm Password',
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -170,7 +168,7 @@ class _RegisterState extends State<Register> {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const HomeScreen()));
                           } else {
-                            return ;
+                            return;
                           }
                         },
                         style: ButtonStyle(
@@ -208,7 +206,8 @@ class _RegisterState extends State<Register> {
                         TextButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const LogIn ()));
+                              builder: (context) => const LoginScreen(),
+                            ));
                           },
                           child: const Text(
                             'Login',

@@ -2,6 +2,8 @@ import 'splash.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
 
+
+
 void main() {
   runApp(const MyApp());
 }

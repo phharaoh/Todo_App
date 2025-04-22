@@ -1,7 +1,6 @@
+import 'splash.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
-import 'package:register_task/splash.dart';
-
 
 void main() {
   runApp(const MyApp());

@@ -1,3 +1,4 @@
+import 'home1.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
 
@@ -110,9 +111,12 @@ class _LogInState extends State<LogIn> {
                       child: ElevatedButton(
                         onPressed: () {
                           formKey.currentState!.validate();
-
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          //     builder: (context) => const HomeScreen()));
+                          if (formKey.currentState!.validate() == true) {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const HomeScreen()));
+                          } else {
+                            return;
+                          }
                         },
                         style: ButtonStyle(
                           backgroundColor:

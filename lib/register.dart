@@ -1,8 +1,7 @@
 import 'home1.dart';
 import 'login.dart';
+import 'utliz/color.dart';
 import 'package:flutter/material.dart';
-import 'package:register_task/utliz/color.dart';
-
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -164,13 +163,15 @@ class _RegisterState extends State<Register> {
                     ),
                     SizedBox(
                       width: 331,
-                      height: 45,
                       child: ElevatedButton(
                         onPressed: () {
                           formKey.currentState!.validate();
-
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const HomeScreen()));
+                          if (formKey.currentState!.validate() == true) {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const HomeScreen()));
+                          } else {
+                            return ;
+                          }
                         },
                         style: ButtonStyle(
                           backgroundColor:
@@ -206,8 +207,8 @@ class _RegisterState extends State<Register> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const LogIn()));
+                            // Navigator.of(context).push(MaterialPageRoute(
+                            //     builder: (context) => const LogIn()));
                           },
                           child: const Text(
                             'Login',

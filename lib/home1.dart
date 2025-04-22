@@ -1,3 +1,5 @@
+import 'home2.dart';
+import 'addTask.dart';
 import 'utliz/font.dart';
 import 'utliz/color.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +40,11 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const AddTaskScreen(),
+              ));
+            },
             child: Container(
               margin: const EdgeInsets.only(right: 15),
               width: 24,
@@ -71,12 +77,19 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: 268,
-            width: 375,
-            child: Image.asset(
-              'assets/image/Homeimage.png',
-              fit: BoxFit.cover,
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const SecHomeScreen(),
+              ));
+            },
+            child: SizedBox(
+              height: 268,
+              width: 375,
+              child: Image.asset(
+                'assets/image/Homeimage.png',
+                fit: BoxFit.cover,
+              ),
             ),
           )
         ],

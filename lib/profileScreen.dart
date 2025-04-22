@@ -1,3 +1,6 @@
+import 'setting.dart';
+import 'UpdatePro.dart';
+import 'changPass.dart';
 import 'utliz/font.dart';
 import 'utliz/color.dart';
 import 'utliz/image.dart';
@@ -57,8 +60,15 @@ class Profilescreen extends StatelessWidget {
                     width: 130,
                   ),
                   Expanded(
-                      flex: 2,
-                      child: Image.asset('assets/image/ArrowForwar.png'))
+                    flex: 2,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const UpdateScreen()));
+                      },
+                      child: Image.asset('assets/image/ArrowForwar.png'),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -80,7 +90,12 @@ class Profilescreen extends StatelessWidget {
                     width: 100,
                   ),
                   Expanded(
-                      child: Image.asset('assets/image/ArrowForwar.png'))
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const ChangPass()));
+                          },
+                          child: Image.asset('assets/image/ArrowForwar.png')))
                 ],
               ),
             ),
@@ -103,7 +118,12 @@ class Profilescreen extends StatelessWidget {
                   ),
                   Expanded(
                       flex: 2,
-                      child: Image.asset('assets/image/ArrowForwar.png'))
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Setting()));
+                          },
+                          child: Image.asset('assets/image/ArrowForwar.png')))
                 ],
               ),
             ),

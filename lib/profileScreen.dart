@@ -2,7 +2,6 @@ import 'setting.dart';
 import 'UpdatePro.dart';
 import 'changPass.dart';
 import 'utliz/font.dart';
-import 'utliz/color.dart';
 import 'utliz/image.dart';
 import 'package:flutter/material.dart';
 
@@ -12,37 +11,47 @@ class Profilescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.scaffoldColor,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 12, top: 5),
-          child: const Row(
-            children: [
-              CircleAvatar(
-                radius: 40,
-                backgroundImage: AssetImage(
-                  "assets/image/pro.png",
-                ),
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Hello!",
-                    textAlign: TextAlign.start,
-                  ),
-                  Text("Ahmed Hegazy")
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
       body: Column(
         children: [
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 20, top: 35),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const Profilescreen()));
+                        },
+                        child: const CircleAvatar(
+                          radius: 25,
+                          backgroundImage: AssetImage(
+                            "assets/image/pro.png",
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 7,
+                      ),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Hello!",
+                            textAlign: TextAlign.start,
+                          ),
+                          Text("Ahmed Hegazy")
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
           Container(
             margin: const EdgeInsets.only(top: 30, left: 20),
             width: 331,
@@ -56,17 +65,18 @@ class Profilescreen extends StatelessWidget {
                   Image.asset(AppImage.profileIcon),
                   const SizedBox(width: 13),
                   const Text("Update Profile", style: AppFont.textStyle),
-                  const SizedBox(
-                    width: 130,
-                  ),
                   Expanded(
-                    flex: 2,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const UpdateScreen()));
-                      },
-                      child: Image.asset('assets/image/ArrowForwar.png'),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const UpdateScreen()));
+                          },
+                          child: Image.asset('assets/image/ArrowForwar.png'),
+                        ),
+                      ],
                     ),
                   )
                 ],
@@ -86,16 +96,20 @@ class Profilescreen extends StatelessWidget {
                   Image.asset('assets/image/Lock.png'),
                   const SizedBox(width: 10),
                   const Text("Change Password", style: AppFont.textStyle),
-                  const SizedBox(
-                    width: 100,
-                  ),
                   Expanded(
-                      child: InkWell(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const ChangPass()));
                           },
-                          child: Image.asset('assets/image/ArrowForwar.png')))
+                          child: Image.asset('assets/image/ArrowForwar.png'),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
@@ -113,17 +127,20 @@ class Profilescreen extends StatelessWidget {
                   Image.asset('assets/image/Setting.png'),
                   const SizedBox(width: 13),
                   const Text("Settings", style: AppFont.textStyle),
-                  const SizedBox(
-                    width: 165,
-                  ),
                   Expanded(
-                      flex: 2,
-                      child: InkWell(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const Setting()));
                           },
-                          child: Image.asset('assets/image/ArrowForwar.png')))
+                          child: Image.asset('assets/image/ArrowForwar.png'),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

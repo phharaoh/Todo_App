@@ -207,8 +207,8 @@ class _RegisterState extends State<Register> {
                         ),
                         TextButton(
                           onPressed: () {
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //     builder: (context) => const LogIn()));
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const LogIn ()));
                           },
                           child: const Text(
                             'Login',

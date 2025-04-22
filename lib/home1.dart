@@ -1,7 +1,7 @@
 import 'home2.dart';
 import 'addTask.dart';
 import 'utliz/font.dart';
-import 'utliz/color.dart';
+import 'profileScreen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,52 +10,60 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.scaffoldColor,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 12, top: 5),
-          child: const Row(
+      body: Column(
+        children: [
+          Row(
             children: [
-              CircleAvatar(
-                radius: 40,
-                backgroundImage: AssetImage(
-                  "assets/image/pro.png",
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 20, top: 35),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const Profilescreen()));
+                        },
+                        child: const CircleAvatar(
+                          radius: 25,
+                          backgroundImage: AssetImage(
+                            "assets/image/pro.png",
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 7,
+                      ),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Hello!",
+                            textAlign: TextAlign.start,
+                          ),
+                          Text("Ahmed Hegazy")
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
-              SizedBox(
-                width: 5,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Hello!",
-                    textAlign: TextAlign.start,
-                  ),
-                  Text("Ahmed Hegazy")
-                ],
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const AddTaskScreen(),
+                  ));
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(right: 15),
+                  width: 24,
+                  height: 24,
+                  child: Image.asset("assets/image/plusicon.png"),
+                ),
               )
             ],
           ),
-        ),
-        actions: [
-          InkWell(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const AddTaskScreen(),
-              ));
-            },
-            child: Container(
-              margin: const EdgeInsets.only(right: 15),
-              width: 24,
-              height: 24,
-              child: Image.asset("assets/image/plusicon.png"),
-            ),
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
           Container(
             margin: const EdgeInsets.only(top: 50, left: 20),
             width: 325,
@@ -77,15 +85,14 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          InkWell(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const SecHomeScreen(),
-              ));
-            },
-            child: SizedBox(
-              height: 268,
-              width: 375,
+          SizedBox(
+            height: 268,
+            width: 375,
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SecHomeScreen()));
+              },
               child: Image.asset(
                 'assets/image/Homeimage.png',
                 fit: BoxFit.cover,

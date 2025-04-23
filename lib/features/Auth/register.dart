@@ -1,18 +1,30 @@
-import 'home1.dart';
-import 'utliz/color.dart';
+import 'loginScreen.dart';
+import '../Home/home1.dart';
+import '../../utliz/color.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterState extends State<Register> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   bool _obscureText = true;
+  bool _obscureConText = true;
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 20,
                     ),
                     TextFormField(
+                      controller: passwordController,
                       obscureText: _obscureText,
                       validator: (value) {
                         if (value == null ||
@@ -104,6 +117,48 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 20,
                     ),
+                    TextFormField(
+                      controller: confirmPasswordController,
+                      obscureText: _obscureConText,
+                      validator: (String? value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 6) {
+                          return 'Invalid password';
+                        }
+                        if (value != passwordController.text) {
+                          return 'Passwords do not match';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _obscureConText = !_obscureConText;
+                            });
+                          },
+                          child: Icon(
+                            _obscureConText
+                                ? Icons.lock_outline_rounded
+                                : Icons.lock_open_sharp,
+                          ),
+                        ),
+                        hintText: 'Confirm Password',
+                        border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                          borderSide: BorderSide(
+                            color: Color(0xffCDCDCD),
+                            width: 1.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     SizedBox(
                       width: 331,
                       child: ElevatedButton(
@@ -111,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           formKey.currentState!.validate();
                           if (formKey.currentState!.validate() == true) {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const HomeScreen()));
+                                builder: (context) => const HomeScreen() ));
                           } else {
                             return;
                           }
@@ -124,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           )),
                         ),
                         child: const Text(
-                          'Login',
+                          'Register',
                           style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.w300,
@@ -139,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          "Dont Have Account !",
+                          "Already have an account?",
                           style: TextStyle(
                               color: Color(0xff24252C),
                               fontSize: 14,
@@ -150,10 +205,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const LoginScreen(),
+                            ));
                           },
                           child: const Text(
-                            'Register',
+                            'Login',
                             style: TextStyle(
                                 color: Color(0xff24252C),
                                 fontSize: 17,

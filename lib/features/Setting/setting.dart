@@ -1,4 +1,4 @@
-import 'utliz/color.dart';
+import '../../utliz/color.dart';
 import 'package:flutter/material.dart';
 import 'package:register_task/utliz/font.dart';
 

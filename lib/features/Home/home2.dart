@@ -1,6 +1,6 @@
 import 'addTask.dart';
 import 'profileScreen.dart';
-import 'utliz/cardImage.dart';
+import '../../utliz/cardImage.dart';
 import 'package:flutter/material.dart';
 
 class SecHomeScreen extends StatelessWidget {

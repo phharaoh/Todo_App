@@ -1,8 +1,8 @@
-import 'setting.dart';
-import 'UpdatePro.dart';
-import 'changPass.dart';
-import 'utliz/font.dart';
-import 'utliz/image.dart';
+import '../../utliz/font.dart';
+import '../../utliz/image.dart';
+import '../Setting/setting.dart';
+import '../Setting/changPass.dart';
+import '../Setting/UpdatePro.dart';
 import 'package:flutter/material.dart';
 
 class Profilescreen extends StatelessWidget {

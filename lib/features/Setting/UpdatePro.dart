@@ -1,5 +1,6 @@
+import '../../core/utliz/color.dart';
 import 'package:flutter/material.dart';
-import 'package:register_task/utliz/color.dart';
+
 
 class UpdateScreen extends StatelessWidget {
   const UpdateScreen({super.key});

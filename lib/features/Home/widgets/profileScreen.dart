@@ -1,9 +1,11 @@
-import '../../utliz/font.dart';
-import '../../utliz/image.dart';
-import '../Setting/setting.dart';
-import '../Setting/changPass.dart';
-import '../Setting/UpdatePro.dart';
+import '../../Setting/setting.dart';
+import '../../Setting/UpdatePro.dart';
+import '../../Setting/changPass.dart';
 import 'package:flutter/material.dart';
+import '../../../core/utliz/font.dart';
+import '../../../core/utliz/image.dart';
+
+
 
 class Profilescreen extends StatelessWidget {
   const Profilescreen({super.key});

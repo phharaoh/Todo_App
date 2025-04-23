@@ -1,7 +1,6 @@
-import 'utliz/color.dart';
-import 'features/Welcome/splash.dart';
+import 'core/utliz/color.dart';
 import 'package:flutter/material.dart';
-
+import 'features/Welcome/widgets/splash.dart';
 
 
 void main() {

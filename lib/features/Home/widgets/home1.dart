@@ -1,7 +1,7 @@
 import 'home2.dart';
 import 'addTask.dart';
 import 'profileScreen.dart';
-import '../../utliz/font.dart';
+import '../../../core/utliz/font.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {

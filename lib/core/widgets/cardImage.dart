@@ -1,5 +1,6 @@
-import 'font.dart';
+import '../utliz/font.dart';
 import 'package:flutter/material.dart';
+
 
 abstract class AppCard {
   static Card card = Card(

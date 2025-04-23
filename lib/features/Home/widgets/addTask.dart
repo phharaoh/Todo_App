@@ -1,5 +1,5 @@
-import '../../utliz/color.dart';
 import 'package:flutter/material.dart';
+import '../../../core/utliz/color.dart';
 
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({super.key});

@@ -1,6 +1,8 @@
-import '../Auth/register.dart';
-import '../../utliz/color.dart';
 import 'package:flutter/material.dart';
+import '../../../core/utliz/color.dart';
+import '../../Auth/widgets/register.dart';
+
+
 
 
 class Letstart extends StatelessWidget {

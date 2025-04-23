@@ -1,6 +1,7 @@
-import '../../utliz/color.dart';
+import '../../core/utliz/font.dart';
+import '../../core/utliz/color.dart';
 import 'package:flutter/material.dart';
-import 'package:register_task/utliz/font.dart';
+
 
 class Setting extends StatefulWidget {
   const Setting({super.key});

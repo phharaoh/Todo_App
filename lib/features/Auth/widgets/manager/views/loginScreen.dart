@@ -1,8 +1,6 @@
-import '../../Home/widgets/home1.dart';
 import 'package:flutter/material.dart';
-import '../../../core/utliz/color.dart';
-
-
+import '../../../../Home/widgets/home1.dart';
+import '../../../../../core/utliz/color.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

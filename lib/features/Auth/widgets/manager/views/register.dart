@@ -1,6 +1,6 @@
 import 'loginScreen.dart';
 import 'package:flutter/material.dart';
-import '../../../core/utliz/color.dart';
+import '../../../../../core/utliz/color.dart';
 import 'package:register_task/features/Home/widgets/home1.dart';
 
 

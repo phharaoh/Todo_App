@@ -13,7 +13,7 @@ abstract class AppCard {
     ),
     child: const Padding(
       padding: EdgeInsets.all(8.0),
-      child: Row(
+      child: Row(///
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

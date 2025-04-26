@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/utliz/color.dart';
-import '../../Auth/widgets/register.dart';
+import '../../Auth/widgets/manager/views/register.dart';
 
 
 

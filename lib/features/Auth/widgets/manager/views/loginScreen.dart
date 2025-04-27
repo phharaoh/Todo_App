@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: const Color(0xffF3F5F4),
       body: SingleChildScrollView(
         child: Column(children: [
-           const Imagecontainer(),
+          const Imagecontainer(),
           const SizedBox(
             height: 20,
           ),

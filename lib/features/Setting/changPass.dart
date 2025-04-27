@@ -1,6 +1,7 @@
-import '../../core/utliz/color.dart';
 import 'package:flutter/material.dart';
 import '../../core/widgets/elevatedButton.dart';
+import '../../core/widgets/imageContainer.dart';
+import 'package:register_task/core/widgets/textFormFeild.dart';
 
 class ChangPass extends StatefulWidget {
   const ChangPass({super.key});
@@ -27,18 +28,7 @@ class _ChangPassState extends State<ChangPass> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
-          Container(
-            width: double.infinity,
-            height: 200,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20))),
-            child: Image.asset(
-              'assets/image/pro.png',
-              fit: BoxFit.cover,
-            ),
-          ),
+          const Imagecontainer(),
           const SizedBox(
             height: 20,
           ),
@@ -48,81 +38,15 @@ class _ChangPassState extends State<ChangPass> {
                 key: formKey,
                 child: Column(
                   children: [
-                    TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your Old Password';
-                        }
-                        return null;
-                      },
-                      decoration: const InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        hintText: 'Old Password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          borderSide: BorderSide(
-                            color: Color(0xffCDCDCD),
-                            width: 1.0,
-                          ),
-                        ),
-                      ),
-                    ),
+                    TxtFormfld(hintTxt: 'Old Password', visible: false),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      controller: passwordController,
-                      validator: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            value.length < 6) {
-                          return 'invalid password';
-                        }
-                        return null;
-                      },
-                      decoration: const InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        hintText: 'New Password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          borderSide: BorderSide(
-                            color: Color(0xffCDCDCD),
-                            width: 1.0,
-                          ),
-                        ),
-                      ),
-                    ),
+                    TxtFormfld(hintTxt: 'New Password', visible: false),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      controller: confirmPasswordController,
-                      validator: (String? value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            value.length < 6) {
-                          return 'Invalid password';
-                        }
-                        if (value != passwordController.text) {
-                          return 'Passwords do not match';
-                        }
-                        return null;
-                      },
-                      decoration: const InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        hintText: 'Confirm Password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          borderSide: BorderSide(
-                            color: Color(0xffCDCDCD),
-                            width: 1.0,
-                          ),
-                        ),
-                      ),
-                    ),
+                    TxtFormfld(hintTxt: 'Confirm Password', visible: false),
                     const SizedBox(
                       height: 20,
                     ),

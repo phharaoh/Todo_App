@@ -1,20 +1,23 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import '../utliz/textForm.dart';
 import 'package:flutter/material.dart';
 
-import '../utliz/textForm.dart';
-
+// ignore: must_be_immutable
 class TxtFormfld extends StatelessWidget {
   TxtFormfld(
-    Key? key,
-    this.valid,
-    required this.hintTxt,
-  }) : super(key: key);
+      {super.key,
+      this.valid,
+      required this.hintTxt,
+      this.suffix,
+      this.prefix,
+      this.control, required bool visible});
+
   final String? Function(String?)? valid;
   TextEditingController? control;
   final String hintTxt;
   Widget? prefix;
   Widget? suffix;
   bool visible = false;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(

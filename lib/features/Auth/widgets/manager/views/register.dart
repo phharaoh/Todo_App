@@ -46,6 +46,7 @@ class _RegisterState extends State<Register> {
                 child: Column(
                   children: [
                     TxtFormfld(
+                      visible:false ,
                       hintTxt: 'User name',
                       valid: (value) {
                         if (value == null || value.isEmpty) {
@@ -54,7 +55,6 @@ class _RegisterState extends State<Register> {
                         return null;
                       },
                       prefix: Image.asset('assets/image/Profile.png'),
-                      visible: false,
                     ),
                     const SizedBox(
                       height: 20,
@@ -106,7 +106,7 @@ class _RegisterState extends State<Register> {
                           });
                         },
                         child: Icon(
-                          _obscureText
+                          _obscureConText
                               ? Icons.lock_outline_rounded
                               : Icons.lock_open_sharp,
                         ),

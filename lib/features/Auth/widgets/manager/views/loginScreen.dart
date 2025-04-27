@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../Home/widgets/home1.dart';
-import '../../../../../core/utliz/color.dart';
+import '../../../../../core/widgets/acountText.dart';
+import '../../../../../core/widgets/textFormFeild.dart';
+import '../../../../../core/widgets/elevatedButton.dart';
+import '../../../../../core/widgets/imageContainer.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,18 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: const Color(0xffF3F5F4),
       body: SingleChildScrollView(
         child: Column(children: [
-          Container(
-            width: double.infinity,
-            height: 200,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20))),
-            child: Image.asset(
-              'assets/image/pro.png',
-              fit: BoxFit.cover,
-            ),
-          ),
+           const Imagecontainer(),
           const SizedBox(
             height: 20,
           ),
@@ -41,34 +33,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 key: formKey,
                 child: Column(
                   children: [
-                    TextFormField(
-                      validator: (value) {
+                    TxtFormfld(
+                      hintTxt: 'User name',
+                      valid: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your name';
                         }
                         return null;
                       },
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        prefixIcon: Image.asset('assets/image/Profile.png'),
-                        hintText: 'User name',
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          borderSide: BorderSide(
-                            color: Color(0xffCDCDCD),
-                            width: 1.0,
-                          ),
-                        ),
-                      ),
-                      keyboardType: TextInputType.emailAddress,
+                      prefix: Image.asset('assets/image/Profile.png'),
+                      visible: false,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      obscureText: _obscureText,
-                      validator: (value) {
+                    TxtFormfld(
+                      visible: _obscureText,
+                      valid: (value) {
                         if (value == null ||
                             value.isEmpty ||
                             value.length < 6) {
@@ -76,92 +57,40 @@ class _LoginScreenState extends State<LoginScreen> {
                         }
                         return null;
                       },
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _obscureText = !_obscureText;
-                            });
-                          },
-                          child: Icon(
-                            _obscureText
-                                ? Icons.lock_outline_rounded
-                                : Icons.lock_open_sharp,
-                          ),
-                        ),
-                        hintText: 'Enter your password',
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          borderSide: BorderSide(
-                            color: Color(0xffCDCDCD),
-                            width: 1.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    SizedBox(
-                      width: 331,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          formKey.currentState!.validate();
-                          if (formKey.currentState!.validate() == true) {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const HomeScreen()));
-                          } else {
-                            return;
-                          }
+                      hintTxt: 'Enter your password',
+                      suffix: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
                         },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStatePropertyAll(AppColor.buttonColor),
-                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14.0),
-                          )),
-                        ),
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w300,
-                              color: Colors.white),
+                        child: Icon(
+                          _obscureText
+                              ? Icons.lock_outline_rounded
+                              : Icons.lock_open_sharp,
                         ),
                       ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Dont Have Account !",
-                          style: TextStyle(
-                              color: Color(0xff24252C),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w200),
-                        ),
-                        const SizedBox(
-                          width: 3,
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text(
-                            'Register',
-                            style: TextStyle(
-                                color: Color(0xff24252C),
-                                fontSize: 17,
-                                fontWeight: FontWeight.w900),
-                          ),
-                        ),
-                      ],
+                    ElvButton(
+                        onpress: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const HomeScreen()));
+                        },
+                        textData: 'Login'),
+                    const SizedBox(
+                      height: 20,
                     ),
+                    Acounttext(
+                      boldTextData: 'Register',
+                      onpress: () {
+                        Navigator.pop(context);
+                      },
+                      textData: 'Dont Have Account!',
+                    )
                   ],
                 )),
           ),

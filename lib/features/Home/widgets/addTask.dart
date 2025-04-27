@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/utliz/color.dart';
+import '../../../core/widgets/elevatedButton.dart';
 
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({super.key});
@@ -75,27 +76,7 @@ class AddTaskScreen extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                SizedBox(
-                  width: 331,
-                  height: 45,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStatePropertyAll(AppColor.buttonColor),
-                      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14.0),
-                      )),
-                    ),
-                    child: const Text(
-                      'Add Task',
-                      style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
+                ElvButton(onpress: () {}, textData: 'Add Task')
               ],
             ),
           ),

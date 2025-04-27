@@ -1,6 +1,6 @@
 import '../../core/utliz/color.dart';
 import 'package:flutter/material.dart';
-
+import '../../core/widgets/elevatedButton.dart';
 
 class ChangPass extends StatefulWidget {
   const ChangPass({super.key});
@@ -126,28 +126,9 @@ class _ChangPassState extends State<ChangPass> {
                     const SizedBox(
                       height: 20,
                     ),
-                    SizedBox(
-                      width: 331,
-                      height: 45,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          formKey.currentState!.validate();
-                        },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStatePropertyAll(AppColor.buttonColor),
-                          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14.0),
-                          )),
-                        ),
-                        child: const Text(
-                          'Save',
-                          style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w300,
-                              color: Colors.white),
-                        ),
-                      ),
+                    ElvButton(
+                      onpress: () {},
+                      textData: 'Save',
                     ),
                     const SizedBox(
                       height: 20,

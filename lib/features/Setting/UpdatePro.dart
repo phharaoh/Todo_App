@@ -1,6 +1,5 @@
-import '../../core/utliz/color.dart';
 import 'package:flutter/material.dart';
-
+import '../../core/widgets/elevatedButton.dart';
 
 class UpdateScreen extends StatelessWidget {
   const UpdateScreen({super.key});
@@ -46,27 +45,10 @@ class UpdateScreen extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                SizedBox(
-                  width: 331,
-                  height: 45,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStatePropertyAll(AppColor.buttonColor),
-                      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14.0),
-                      )),
-                    ),
-                    child: const Text(
-                      'Update',
-                      style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
+                ElvButton(
+                  onpress: () {},
+                  textData: 'Update',
+                )
               ],
             ),
           ),

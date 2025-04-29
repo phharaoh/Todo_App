@@ -19,7 +19,7 @@ class TaskHome extends StatelessWidget {
               color: AppColor.buttonColor,
               borderRadius: BorderRadius.circular(30),
             ),
-            child: Row(
+            child: const Row(
               children: [
                 Column(
                   children: [],

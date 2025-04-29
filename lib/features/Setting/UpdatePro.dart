@@ -29,7 +29,7 @@ class UpdateScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                TxtFormfld(hintTxt: 'Update', visible: false),
+                const TxtFormfld(hintTxt: 'Update'),
                 const SizedBox(
                   height: 25,
                 ),

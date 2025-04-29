@@ -1,4 +1,4 @@
-import 'core/utliz/color.dart';
+import 'core/utilz/color.dart';
 import 'package:flutter/material.dart';
 import 'features/Welcome/widgets/splash.dart';
 

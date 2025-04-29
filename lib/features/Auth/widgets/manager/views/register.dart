@@ -1,8 +1,8 @@
 import 'loginScreen.dart';
 import 'package:flutter/material.dart';
 import '../../../../Home/widgets/home1.dart';
+import '../../../../../core/utilz/textForm.dart';
 import '../../../../../core/widgets/acountText.dart';
-import '../../../../../core/widgets/textFormFeild.dart';
 import '../../../../../core/widgets/imageContainer.dart';
 import '../../../../../core/widgets/elevatedButton.dart';
 
@@ -34,92 +34,108 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       backgroundColor: const Color(0xffF3F5F4),
       body: SingleChildScrollView(
-        child: Column(children: [
+          child: Column(
+        children: [
           const Imagecontainer(),
           const SizedBox(
             height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Form(
-                key: formKey,
-                child: Column(
-                  children: [
-                    TxtFormfld(
-                      visible:false ,
-                      hintTxt: 'User name',
-                      valid: (value) {
+              padding: const EdgeInsets.all(8.0),
+              child: Form(
+                  key: formKey,
+                  child: Column(children: [
+                    TextFormField(
+                      validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your name';
                         }
                         return null;
                       },
-                      prefix: Image.asset('assets/image/Profile.png'),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    TxtFormfld(
-                      visible: _obscureText,
-                      hintTxt: 'Enter your password',
-                      control: passwordController,
-                      valid: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            value.length < 6) {
-                          return 'invalid password';
-                        }
-                        return null;
-                      },
-                      suffix: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },
-                        child: Icon(
-                          _obscureText
-                              ? Icons.lock_outline_rounded
-                              : Icons.lock_open_sharp,
-                        ),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'User name',
+                        prefixIcon: Image.asset('assets/image/Profile.png'),
+                        border: TextForm.outlineInputBorder,
                       ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TxtFormfld(
-                      visible: _obscureConText,
-                      hintTxt: 'Confirm your password',
-                      control: confirmPasswordController,
-                      valid: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            value.length < 6) {
-                          return 'invalid password';
-                        }
-                        return null;
-                      },
-                      suffix: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _obscureConText = !_obscureConText;
-                          });
+                    TextFormField(
+                        obscureText: _obscureText,
+                        controller: passwordController,
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              value.length < 6) {
+                            return 'invalid password';
+                          }
+                          return null;
                         },
-                        child: Icon(
-                          _obscureConText
-                              ? Icons.lock_outline_rounded
-                              : Icons.lock_open_sharp,
-                        ),
-                      ),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Enter your password',
+                          border: TextForm.outlineInputBorder,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                            child: Icon(
+                              _obscureText
+                                  ? Icons.lock_outline_rounded
+                                  : Icons.lock_open_sharp,
+                            ),
+                          ),
+                        )),
+                    const SizedBox(
+                      height: 20,
                     ),
+                    TextFormField(
+                        obscureText: _obscureConText,
+                        controller: confirmPasswordController,
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              value.length < 6) {
+                            return 'invalid password';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Confirm your password',
+                          border: TextForm.outlineInputBorder,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _obscureConText = !_obscureConText;
+                              });
+                            },
+                            child: Icon(
+                              _obscureConText
+                                  ? Icons.lock_outline_rounded
+                                  : Icons.lock_open_sharp,
+                            ),
+                          ),
+                        )),
                     const SizedBox(
                       height: 20,
                     ),
                     ElvButton(
                       onpress: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const HomeScreen()));
+                        if (formKey.currentState!.validate()) {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const HomeScreen()));
+                        } else {
+                          return;
+                        }
                       },
                       textData: 'Register',
                     ),
@@ -135,11 +151,9 @@ class _RegisterState extends State<Register> {
                       },
                       textData: 'Already Have An Account ?',
                     ),
-                  ],
-                )),
-          ),
-        ]),
-      ),
+                  ])))
+        ],
+      )),
     );
   }
 }

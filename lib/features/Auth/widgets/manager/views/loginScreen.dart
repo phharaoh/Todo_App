@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../Home/widgets/home1.dart';
+import '../../../../../core/utilz/textForm.dart';
 import '../../../../../core/widgets/acountText.dart';
-import '../../../../../core/widgets/textFormFeild.dart';
-import '../../../../../core/widgets/elevatedButton.dart';
 import '../../../../../core/widgets/imageContainer.dart';
+import '../../../../../core/widgets/elevatedButton.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -22,80 +22,93 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: const Color(0xffF3F5F4),
       body: SingleChildScrollView(
-        child: Column(children: [
+          child: Column(
+        children: [
           const Imagecontainer(),
           const SizedBox(
             height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Form(
-                key: formKey,
-                child: Column(
-                  children: [
-                    TxtFormfld(
-                      hintTxt: 'User name',
-                      valid: (value) {
+              padding: const EdgeInsets.all(8.0),
+              child: Form(
+                  key: formKey,
+                  child: Column(children: [
+                    TextFormField(
+                      validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your name';
                         }
                         return null;
                       },
-                      prefix: Image.asset('assets/image/Profile.png'),
-                      visible: false,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    TxtFormfld(
-                      visible: _obscureText,
-                      valid: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            value.length < 6) {
-                          return 'invalid password';
-                        }
-                        return null;
-                      },
-                      hintTxt: 'Enter your password',
-                      suffix: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },
-                        child: Icon(
-                          _obscureText
-                              ? Icons.lock_outline_rounded
-                              : Icons.lock_open_sharp,
-                        ),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'User name',
+                        prefixIcon: Image.asset('assets/image/Profile.png'),
+                        border: TextForm.outlineInputBorder,
                       ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
+                    TextFormField(
+                        obscureText: _obscureText,
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              value.length < 6) {
+                            return 'invalid password';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Enter your password',
+                          border: TextForm.outlineInputBorder,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                            child: Icon(
+                              _obscureText
+                                  ? Icons.lock_outline_rounded
+                                  : Icons.lock_open_sharp,
+                            ),
+                          ),
+                        )),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     ElvButton(
-                        onpress: () {
+                      onpress: () {
+                        if (formKey.currentState!.validate()) {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (BuildContext context) =>
                                   const HomeScreen()));
-                        },
-                        textData: 'Login'),
+                        } else {
+                          return;
+                        }
+                      },
+                      textData: 'Login',
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
                     Acounttext(
                       boldTextData: 'Register',
                       onpress: () {
-                        Navigator.pop(context);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const LoginScreen()));
                       },
-                      textData: 'Dont Have Account!',
-                    )
-                  ],
-                )),
-          ),
-        ]),
-      ),
+                      textData: 'Create Account',
+                    ),
+                  ])))
+        ],
+      )),
     );
   }
 }

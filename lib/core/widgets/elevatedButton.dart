@@ -1,6 +1,6 @@
-import '../utliz/font.dart';
+import '../utilz/font.dart';
 import 'package:flutter/material.dart';
-import '../utliz/elvatButton_style.dart';
+import '../utilz/elvatButton_style.dart';
 
 class ElvButton extends StatelessWidget {
   const ElvButton({super.key, required this.onpress, required this.textData});

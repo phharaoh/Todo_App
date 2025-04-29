@@ -8,4 +8,10 @@ abstract class TextForm {
       width: .1,
     ),
   );
+  static InputDecoration inputDecoration = InputDecoration(
+       filled: true,
+        fillColor: Colors.white,
+        border: TextForm.outlineInputBorder,
+
+  );
 }

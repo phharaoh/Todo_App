@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/utliz/color.dart';
+import '../../../core/utilz/color.dart';
 import '../../../core/widgets/textFormFeild.dart';
 import '../../../core/widgets/elevatedButton.dart';
 
@@ -43,11 +43,11 @@ class AddTaskScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                TxtFormfld(hintTxt: 'Title', visible: false),
+                const TxtFormfld(hintTxt: 'Title'),
                 const SizedBox(
                   height: 20,
                 ),
-                TxtFormfld(hintTxt: 'Description', visible: false),
+                const TxtFormfld(hintTxt: 'Description'),
                 const SizedBox(
                   height: 25,
                 ),

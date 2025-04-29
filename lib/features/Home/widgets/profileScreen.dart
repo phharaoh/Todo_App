@@ -1,11 +1,10 @@
 import '../../Setting/setting.dart';
 import '../../Setting/UpdatePro.dart';
 import '../../Setting/changPass.dart';
+import '../../../core/utilz/font.dart';
 import 'package:flutter/material.dart';
-import '../../../core/utliz/font.dart';
-import '../../../core/utliz/image.dart';
-
-
+import '../../../core/utilz/image.dart';
+import '../../../core/widgets/appBar.dart';
 
 class Profilescreen extends StatelessWidget {
   const Profilescreen({super.key});
@@ -15,45 +14,7 @@ class Profilescreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.only(left: 20, top: 35),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const Profilescreen()));
-                        },
-                        child: const CircleAvatar(
-                          radius: 25,
-                          backgroundImage: AssetImage(
-                            "assets/image/pro.png",
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 7,
-                      ),
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Hello!",
-                            textAlign: TextAlign.start,
-                          ),
-                          Text("Ahmed Hegazy")
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+          const BarApp(),
           Container(
             margin: const EdgeInsets.only(top: 30, left: 20),
             width: 331,

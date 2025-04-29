@@ -1,7 +1,6 @@
-import '../../core/utliz/font.dart';
-import '../../core/utliz/color.dart';
+import '../../core/utilz/font.dart';
+import '../../core/utilz/color.dart';
 import 'package:flutter/material.dart';
-
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -40,10 +39,9 @@ class _SettingState extends State<Setting> {
         title: const Text(
           "Language",
           style: AppFont.textStyle,
-          
         ),
         activeColor: AppColor.buttonColor,
-        trackColor:  const WidgetStatePropertyAll(Colors.grey),
+        trackColor: const WidgetStatePropertyAll(Colors.grey),
         // shape:,
       ),
     );

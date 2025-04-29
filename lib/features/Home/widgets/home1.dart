@@ -1,8 +1,7 @@
 import 'home2.dart';
-import 'addTask.dart';
-import 'profileScreen.dart';
-import '../../../core/utliz/font.dart';
+import '../../../core/utilz/font.dart';
 import 'package:flutter/material.dart';
+import '../../../core/widgets/appBar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,58 +11,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.only(left: 20, top: 35),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const Profilescreen()));
-                        },
-                        child: const CircleAvatar(
-                          radius: 25,
-                          backgroundImage: AssetImage(
-                            "assets/image/pro.png",
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 7,
-                      ),
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Hello!",
-                            textAlign: TextAlign.start,
-                          ),
-                          Text("Ahmed Hegazy")
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const AddTaskScreen(),
-                  ));
-                },
-                child: Container(
-                  margin: const EdgeInsets.only(right: 15),
-                  width: 24,
-                  height: 24,
-                  child: Image.asset("assets/image/plusicon.png"),
-                ),
-              )
-            ],
-          ),
+          const BarApp(),
           Container(
             margin: const EdgeInsets.only(top: 50, left: 20),
             width: 325,

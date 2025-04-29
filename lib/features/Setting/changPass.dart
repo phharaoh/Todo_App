@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../core/utilz/textForm.dart';
 import '../../core/widgets/elevatedButton.dart';
 import '../../core/widgets/imageContainer.dart';
-import 'package:register_task/core/widgets/textFormFeild.dart';
 
 class ChangPass extends StatefulWidget {
   const ChangPass({super.key});
@@ -38,24 +38,49 @@ class _ChangPassState extends State<ChangPass> {
                 key: formKey,
                 child: Column(
                   children: [
-                    TxtFormfld(hintTxt: 'Old Password', visible: false),
+                    TextFormField(
+                        controller: passwordController,
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              value.length < 6) {
+                            return 'invalid password';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Old password',
+                          border: TextForm.outlineInputBorder,
+                        )),
                     const SizedBox(
                       height: 20,
                     ),
-                    TxtFormfld(hintTxt: 'New Password', visible: false),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    TxtFormfld(hintTxt: 'Confirm Password', visible: false),
+                    TextFormField(
+                        controller: confirmPasswordController,
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              value.length < 6) {
+                            return 'invalid password';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Confirm password',
+                          border: TextForm.outlineInputBorder,
+                        )),
                     const SizedBox(
                       height: 20,
                     ),
                     ElvButton(
-                      onpress: () {},
+                      onpress: () {
+                        formKey.currentState!.validate();
+                      },
                       textData: 'Save',
-                    ),
-                    const SizedBox(
-                      height: 20,
                     ),
                   ],
                 )),

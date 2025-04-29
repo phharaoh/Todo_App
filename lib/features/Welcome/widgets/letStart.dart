@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/utliz/font.dart';
+import '../../../core/utilz/font.dart';
 import '../../../core/widgets/elevatedButton.dart';
 import '../../Auth/widgets/manager/views/register.dart';
 

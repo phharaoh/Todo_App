@@ -1,4 +1,4 @@
-import '../utliz/font.dart';
+import '../utilz/font.dart';
 import 'package:flutter/material.dart';
 
 class Acounttext extends StatelessWidget {

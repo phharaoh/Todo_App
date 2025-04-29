@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/utilz/color.dart';
+import '../../../core/widgets/dropDown.dart';
 import '../../../core/widgets/textFormFeild.dart';
 import '../../../core/widgets/elevatedButton.dart';
 
@@ -26,10 +27,10 @@ class AddTaskScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
-            margin: const EdgeInsets.only(top: 30),
+            margin: const EdgeInsets.only(top: 1),
             clipBehavior: Clip.antiAliasWithSaveLayer,
             width: 261,
-            height: 207,
+            height: 170,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
             child: Image.asset(
               'assets/image/pro.png',
@@ -37,7 +38,7 @@ class AddTaskScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -45,11 +46,15 @@ class AddTaskScreen extends StatelessWidget {
               children: [
                 const TxtFormfld(hintTxt: 'Title'),
                 const SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 const TxtFormfld(hintTxt: 'Description'),
                 const SizedBox(
-                  height: 25,
+                  height: 15,
+                ),
+                const DropDownFild(),
+                const SizedBox(
+                  height: 15,
                 ),
                 ElvButton(onpress: () {}, textData: 'Add Task')
               ],

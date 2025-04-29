@@ -2,6 +2,7 @@ import 'home2.dart';
 import '../../../core/utilz/font.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/appBar.dart';
+import '../../../core/utilz/floatingButt.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -49,6 +50,7 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
+      floatingActionButton: FloatingButt.addFloatingButton,
     );
   }
 }

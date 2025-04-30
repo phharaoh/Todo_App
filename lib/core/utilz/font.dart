@@ -16,6 +16,11 @@ abstract class AppFont {
     fontSize: 14,
     color: Color(0xff24252C),
   );
+  static const TextStyle homeContainer = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+    color: Colors.white,
+  );
   static const TextStyle viewDesciption = TextStyle(
     color: Color(0xff24252C),
     fontSize: 24,

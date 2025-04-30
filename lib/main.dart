@@ -1,10 +1,6 @@
 import 'core/utilz/color.dart';
-import 'features/Home/home3.dart';
 import 'package:flutter/material.dart';
-import 'features/Setting/editTask.dart';
-import 'features/Home/widgets/home1.dart';
-import 'features/Home/widgets/addTask.dart';
-import 'features/Welcome/widgets/splash.dart';
+import 'features/Home/widgets/home3.dart';
 
 void main() {
   runApp(const MyApp());

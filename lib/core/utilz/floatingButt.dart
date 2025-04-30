@@ -5,7 +5,7 @@ abstract class FloatingButt {
     onTap: () {},
     child: Image.asset('assets/image/floatingIcon.png'),
   );
-  static FloatingActionButton editFloatingButton = FloatingActionButton(
+  static FloatingActionButton filterFloatingButton = FloatingActionButton(
     onPressed: () {},
     backgroundColor: const Color(0xff149954),
     shape: const CircleBorder(),

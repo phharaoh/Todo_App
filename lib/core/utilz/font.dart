@@ -31,4 +31,9 @@ abstract class AppFont {
     fontSize: 19,
     fontWeight: FontWeight.w900,
   );
+  static const TextStyle containerText = TextStyle(
+    color: Color(0xff24252C),
+    fontSize: 14,
+    fontWeight: FontWeight.w300,
+  );
 }

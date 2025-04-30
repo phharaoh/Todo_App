@@ -15,13 +15,13 @@ class Grouptasks extends StatelessWidget {
             height: 63,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(15)),
-            child:  Padding(
+            child: Padding(
               padding: const EdgeInsets.all(15),
               child: Row(
                 children: [
                   Image.asset('assets/image/Prof.png'),
                   const SizedBox(width: 13),
-                  const Text("Personal Task", style: AppFont.textStyle),
+                  const Text("Personal Task", style: AppFont.containerText),
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -35,7 +35,7 @@ class Grouptasks extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 10,
           ),
           Container(
             width: 335,
@@ -48,7 +48,7 @@ class Grouptasks extends StatelessWidget {
                 children: [
                   Image.asset('assets/image/home.png'),
                   const SizedBox(width: 10),
-                  const Text("Home Task", style: AppFont.textStyle),
+                  const Text("Home Task", style: AppFont.containerText),
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -61,8 +61,8 @@ class Grouptasks extends StatelessWidget {
               ),
             ),
           ),
-              const SizedBox(
-            height: 5,
+          const SizedBox(
+            height: 10,
           ),
           Container(
             width: 335,
@@ -75,7 +75,7 @@ class Grouptasks extends StatelessWidget {
                 children: [
                   Image.asset('assets/image/workimage.png'),
                   const SizedBox(width: 13),
-                  const Text("Work Task", style: AppFont.textStyle),
+                  const Text("Work Task", style: AppFont.containerText),
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,

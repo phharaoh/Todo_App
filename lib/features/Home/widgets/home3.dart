@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/utilz/font.dart';
 import '../../../core/utilz/color.dart';
 import '../../../core/widgets/cards.dart';
+import '../../../core/utilz/floatingButt.dart';
 import '../../../core/widgets/groupTasks.dart';
 
 class TaskHome extends StatelessWidget {
@@ -82,14 +83,33 @@ class TaskHome extends StatelessWidget {
               ),
               const Cards(),
               const SizedBox(
-                height: 20,
+                height: 10,
+              ),
+              const Row(
+                children: [
+                  Text(
+                    'Task Group',
+                    textAlign: TextAlign.start,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
               ),
               const Grouptasks(),
+              FloatingActionButton(
+                onPressed: () {},
+                backgroundColor: const Color(0xff149954),
+                shape: const CircleBorder(),
+                child: const Icon(
+                  Icons.filter_list_rounded,
+                  color: Colors.white,
+                ),
+              )
             ],
           ),
         ),
       ),
-      // floatingActionButton: FloatingButt.filterFloatingButton,
     );
   }
 }

@@ -1,7 +1,8 @@
-import 'home2.dart';
+import 'home3.dart';
 import 'TaskView.dart';
 import '../../../core/utilz/font.dart';
 import 'package:flutter/material.dart';
+import '../../../core/utilz/color.dart';
 import '../../../core/widgets/appBar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const SecHomeScreen()));
+                      builder: (context) => const TaskHome()));
                 },
                 child: Image.asset(
                   'assets/image/Homeimage.png',
@@ -51,11 +52,14 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const Taskview()));
-          },
-          child: Image.asset('assets/image/floatingIcon.png'),
-        ));
+            backgroundColor: AppColor.buttonColor,
+            foregroundColor: Colors.white,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Taskview()));
+            },
+            child: const Icon(Icons.note_add_sharp)));
   }
 }

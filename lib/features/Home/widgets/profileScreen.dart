@@ -1,4 +1,5 @@
 import '../../Setting/setting.dart';
+import '../../Setting/editTask.dart';
 import '../../Setting/UpdatePro.dart';
 import '../../Setting/changPass.dart';
 import '../../../core/utilz/font.dart';
@@ -67,6 +68,37 @@ class Profilescreen extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const ChangPass()));
+                          },
+                          child: Image.asset('assets/image/ArrowForwar.png'),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 30, left: 20),
+            width: 331,
+            height: 63,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(15)),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Row(
+                children: [
+                  Image.asset('assets/image/Setting.png'),
+                  const SizedBox(width: 13),
+                  const Text("Edit Task", style: AppFont.textStyle),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const EditTask()));
                           },
                           child: Image.asset('assets/image/ArrowForwar.png'),
                         ),

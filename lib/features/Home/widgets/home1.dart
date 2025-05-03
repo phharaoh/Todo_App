@@ -1,9 +1,9 @@
 import 'home3.dart';
-import 'TaskView.dart';
 import '../../../core/utilz/font.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utilz/color.dart';
-import '../../../core/widgets/appBar.dart';
+import '../../../core/utilz/appBar.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,54 +11,35 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-          children: [
-            const BarApp(),
-            Container(
-              margin: const EdgeInsets.only(top: 50, left: 20),
-              width: 325,
-              height: 100,
-              child: const Column(
-                children: [
-                  Text(
-                    "There are no tasks yet,",
-                    style: AppFont.textStyle,
-                  ),
-                  Text(
-                    " Press the button",
-                    style: AppFont.textStyle,
-                  ),
-                  Text(
-                    " To add New Task ",
-                    style: AppFont.textStyle,
-                  ),
-                ],
+        appBar: MyAppbar.buildAppBar(context),
+        body: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                "There are no tasks yet,\n Press the button\n To add New Task ",
+                style: AppFont.textStyle,
+                textAlign: TextAlign.center,
               ),
-            ),
-            SizedBox(
-              height: 268,
-              width: 375,
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const TaskHome()));
-                },
-                child: Image.asset(
-                  'assets/image/Homeimage.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            )
-          ],
+              Container(
+                height: MediaQuery.of(context).size.height * 0.46,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/image/Homeimage.png"),
+                        fit: BoxFit.cover)),
+              )
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
             backgroundColor: AppColor.buttonColor,
             foregroundColor: Colors.white,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            shape: const CircleBorder(),
             onPressed: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Taskview()));
+                  MaterialPageRoute(builder: (context) => const TaskHome()));
             },
             child: const Icon(Icons.note_add_sharp)));
   }

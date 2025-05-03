@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../core/utilz/font.dart';
 import '../../../core/utilz/color.dart';
+import '../../../core/utilz/appBar.dart';
 import '../../../core/widgets/cards.dart';
 import '../../../core/widgets/groupTasks.dart';
+import 'package:register_task/features/Home/widgets/TaskView.dart';
 
 class TaskHome extends StatelessWidget {
   const TaskHome({super.key});
@@ -10,20 +12,7 @@ class TaskHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColor.scaffoldColor,
-          leading: InkWell(
-            child: Image.asset('assets/image/ArrowIcon.png'),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          centerTitle: true,
-          title: const Text(
-            "Task",
-            style: TextStyle(fontSize: 19, fontWeight: FontWeight.w300),
-          ),
-        ),
+        appBar: MyAppbar.buildAppBar(context),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(18.0),
@@ -105,7 +94,10 @@ class TaskHome extends StatelessWidget {
             foregroundColor: Colors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Taskview()));
+            },
             child: const Icon(Icons.note_add_sharp)));
   }
 }

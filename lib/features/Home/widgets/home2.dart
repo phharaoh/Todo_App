@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../core/widgets/appBar.dart';
 import '../../../core/widgets/cardImage.dart';
 
 class SecHomeScreen extends StatelessWidget {
@@ -11,7 +10,6 @@ class SecHomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const BarApp(),
             AppCard.card,
             AppCard.card,
             AppCard.card,

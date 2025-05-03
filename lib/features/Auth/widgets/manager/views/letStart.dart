@@ -1,7 +1,9 @@
+import 'register.dart';
 import 'package:flutter/material.dart';
-import '../../../core/utilz/font.dart';
-import '../../../core/widgets/elevatedButton.dart';
-import '../../Auth/widgets/manager/views/register.dart';
+import '../../../../../core/utilz/font.dart';
+import '../../../../../core/widgets/elevatedButton.dart';
+
+
 
 class Letstart extends StatelessWidget {
   const Letstart({super.key});

@@ -1,24 +1,41 @@
-import 'letStart.dart';
 import 'package:flutter/material.dart';
+import 'package:register_task/features/Welcome/widgets/letStart.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) => const Letstart(),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: InkWell(
-          child: Image.asset(
-            'assets/image/splashimage.png',
-            width: 334,
-            height: 433,
-          ),
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => const Letstart(),
-            ));
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/image/splashimage.png',
+              width: MediaQuery.of(context).size.width * 0.9,
+              // height: 433,
+            ),
+          ],
         ),
       ),
     );

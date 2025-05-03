@@ -36,4 +36,9 @@ abstract class AppFont {
     fontSize: 14,
     fontWeight: FontWeight.w300,
   );
+  static const TextStyle readyToText = TextStyle(
+    color: Color(0xff6E6A7C),
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
 }

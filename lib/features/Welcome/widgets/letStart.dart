@@ -9,63 +9,42 @@ class Letstart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 40, left: 36),
-            child: Image.asset(
-              'assets/image/lets.png',
-              width: 301,
-              height: 342,
-            ),
+      body: PopScope(
+        canPop: false,
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: MediaQuery.of(context).size.height * 0.05,
+            bottom: MediaQuery.of(context).size.height * 0.045,
+            left: 22,
+            right: 22,
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          const SizedBox(
-            height: 70,
-            width: 147,
+          child: SafeArea(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text("Welcome To Do It !",
-                    textAlign: TextAlign.center, style: AppFont.viewDesciption)
+                Image.asset(
+                  'assets/image/lets.png',
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
+                const Text("Welcome To\nDo It !",
+                    textAlign: TextAlign.center, style: AppFont.viewDesciption),
+                const Text(
+                  "Ready to conquer your tasks? Let's Do It\ntogether.",
+                  textAlign: TextAlign.center,
+                  style: AppFont.readyToText,
+                ),
+                ElvButton(
+                  onpress: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => const Register(),
+                    ));
+                  },
+                  textData: 'Register',
+                )
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Center(
-            child: SizedBox(
-              height: 50,
-              width: 314,
-              child: Column(
-                children: [
-                  Text(
-                    "Ready to conquer your tasks? Let's Do It together.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xff6E6A7C),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          ElvButton(
-            onpress: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => const Register(),
-              ));
-            },
-            textData: 'Register',
-          )
-        ],
+        ),
       ),
     );
   }

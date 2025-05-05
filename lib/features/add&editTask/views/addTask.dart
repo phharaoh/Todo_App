@@ -1,8 +1,9 @@
+import 'editTask.dart';
 import 'package:flutter/material.dart';
-import '../../../core/utilz/color.dart';
 import '../../../core/widgets/dropDown.dart';
 import '../../../core/widgets/textFormFeild.dart';
 import '../../../core/widgets/elevatedButton.dart';
+import 'package:register_task/core/utilz/customAppBar.dart';
 
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({super.key});
@@ -10,27 +11,13 @@ class AddTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.scaffoldColor,
-        leading: InkWell(
-          child: Image.asset('assets/image/ArrowIcon.png'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        centerTitle: true,
-        title: const Text(
-          "Add Task",
-          style: TextStyle(fontSize: 19, fontWeight: FontWeight.w300),
-        ),
-      ),
+      appBar: const Customappbar(title: 'Add Task'),
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
-            margin: const EdgeInsets.only(top: 1),
             clipBehavior: Clip.antiAliasWithSaveLayer,
             width: 261,
-            height: 170,
+            height: MediaQuery.of(context).size.height * .25,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
             child: Image.asset(
               'assets/image/pro.png',
@@ -56,7 +43,20 @@ class AddTaskScreen extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                ElvButton(onpress: () {}, textData: 'Add Task')
+                TxtFormfld(
+                  hintTxt: 'End Time',
+                  prefix: Image.asset('assets/image/calendar.png'),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                ElvButton(
+                    onpress: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const EditTask(),
+                      ));
+                    },
+                    textData: 'Add Task')
               ],
             ),
           ),

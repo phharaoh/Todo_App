@@ -4,8 +4,6 @@ import '../../../core/widgets/dropDown.dart';
 import '../../../core/widgets/textFormFeild.dart';
 import '../../../core/widgets/elevatedButton.dart';
 
-
-
 class EditTask extends StatelessWidget {
   const EditTask({
     super.key,
@@ -15,12 +13,6 @@ class EditTask extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.scaffoldColor,
-        leading: InkWell(
-          child: Image.asset('assets/image/ArrowIcon.png'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
         centerTitle: true,
         title: const Text(
           "Edit Task",
@@ -45,7 +37,7 @@ class EditTask extends StatelessWidget {
               const Row(
                 children: [
                   CircleAvatar(
-                    radius: 38,
+                    radius: 30,
                     backgroundImage: AssetImage('assets/image/pro.png'),
                   ),
                   SizedBox(
@@ -83,17 +75,14 @@ class EditTask extends StatelessWidget {
               ),
               SizedBox(
                 height: 45,
-                width: 331,
+                width: double.infinity,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      side: BorderSide(
-                          color: AppColor.buttonColor,
-                          width: 2), // Set border color and width
-                      backgroundColor: Colors.white, // Button background color
-                      foregroundColor: AppColor.buttonColor, // Text color
+                      side: BorderSide(color: AppColor.primaryColor, width: 2),
+                      backgroundColor: Colors.white,
+                      foregroundColor: AppColor.primaryColor,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                            15), // Optional: Rounded corners
+                        borderRadius: BorderRadius.circular(15),
                       ),
                     ),
                     onPressed: () {},

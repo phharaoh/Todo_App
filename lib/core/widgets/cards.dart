@@ -81,7 +81,7 @@ class Cards extends StatelessWidget {
           ),
           Card(
             margin: const EdgeInsets.only(left: 10),
-            color:  const Color(0xffFFE4F2),
+            color: const Color(0xffFFE4F2),
             shadowColor: Colors.black,
             elevation: .25,
             shape: RoundedRectangleBorder(

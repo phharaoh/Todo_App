@@ -1,5 +1,5 @@
-import 'font.dart';
-import 'color.dart';
+import '../utilz/font.dart';
+import '../utilz/color.dart';
 import 'package:flutter/material.dart';
 import '../../features/Setting/profileScreen.dart';
 

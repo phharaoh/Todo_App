@@ -16,6 +16,11 @@ abstract class AppFont {
     fontSize: 14,
     color: Color(0xff24252C),
   );
+  static const TextStyle appBarTitleStyle = TextStyle(
+    fontWeight: FontWeight.w300,
+    fontSize: 19,
+    color: Color(0xff24252C),
+  );
   static const TextStyle homeContainer = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 14,
@@ -50,5 +55,21 @@ abstract class AppFont {
     color: Color(0xff6E6A7C),
     fontSize: 16,
     fontWeight: FontWeight.w500,
+  );
+  static const TextStyle containerTask = TextStyle(
+    color: Colors.black,
+    fontSize: 14,
+    fontWeight: FontWeight.w300,
+    overflow: TextOverflow.clip,
+  );
+  static const TextStyle optionText = TextStyle(
+    color: Color(0xff24252C),
+    fontSize: 16,
+    fontWeight: FontWeight.w800,
+  );
+  static const TextStyle smallContainerTask = TextStyle(
+    color: Colors.white,
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
   );
 }

@@ -2,9 +2,9 @@ import 'auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitState());
-  static LoginCubit get(context) => BlocProvider.of(context);
+class RegisterCubit extends Cubit<RegisterState> {
+  RegisterCubit() : super(RegisterInitState());
+  static RegisterCubit get(context) => BlocProvider.of(context);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String? _error;
 
@@ -16,18 +16,18 @@ class LoginCubit extends Cubit<LoginState> {
   bool showPassword = false;
   void changePasswordVisibility() {
     showPassword = !showPassword;
-    emit(LoginChangePassState());
+    emit(RegisterChangePassState());
   }
 
   void onRegisterPress() {
-    emit(LoginLoadState());
+    emit(RegisterLoadState());
     if (!formKey.currentState!.validate()) {
       _error = 'Complete the form and fix errors';
     }
     if (_error == null) {
-      emit(LoginSuccesState());
+      emit(RegisterSuccesState());
     } else {
-      emit(LoginErrorState(_error!, error: '$_error'));
+      emit(RegisterErrorState(_error!, error: '$_error'));
     }
     // ignore: avoid_print
     print(_error);

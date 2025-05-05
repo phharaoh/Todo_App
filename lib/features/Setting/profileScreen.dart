@@ -1,9 +1,13 @@
 import 'setting.dart';
 import 'UpdatePro.dart';
-import 'changPass.dart';
-import '../../../core/utilz/font.dart';
 import 'package:flutter/material.dart';
+import '../../core/widgets/appBar.dart';
 import '../../../core/utilz/image.dart';
+import '../../core/widgets/profileContainers.dart';
+import 'package:register_task/features/Setting/changPass.dart';
+import 'package:register_task/features/add&editTask/views/addTask.dart';
+
+
 
 class Profilescreen extends StatelessWidget {
   const Profilescreen({super.key});
@@ -11,102 +15,37 @@ class Profilescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 30, left: 20),
-            width: 331,
-            height: 63,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(15)),
-            child: Padding(
-              padding: const EdgeInsets.all(15),
-              child: Row(
-                children: [
-                  Image.asset(AppImage.profileIcon),
-                  const SizedBox(width: 13),
-                  const Text("Update Profile", style: AppFont.textStyle),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const UpdateScreen()));
-                          },
-                          child: Image.asset('assets/image/ArrowForwar.png'),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+      appBar: MyAppbar.buildAppBar(context),
+      body: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Column(
+          children: [
+            ProChoices(
+              txt: 'Add Task',
+              imagePath: 'assets/image/plusicon.png',
+              screen: const AddTaskScreen(),
+              context: context,
             ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 30, left: 20),
-            width: 331,
-            height: 63,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(15)),
-            child: Padding(
-              padding: const EdgeInsets.all(15),
-              child: Row(
-                children: [
-                  Image.asset('assets/image/Lock.png'),
-                  const SizedBox(width: 10),
-                  const Text("Change Password", style: AppFont.textStyle),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const ChangPass()));
-                          },
-                          child: Image.asset('assets/image/ArrowForwar.png'),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+            ProChoices(
+              txt: 'Update Profile',
+              imagePath: AppImage.profileIcon,
+              screen: const UpdateScreen(),
+              context: context,
             ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 30, left: 20),
-            width: 331,
-            height: 63,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(15)),
-            child: Padding(
-              padding: const EdgeInsets.all(15),
-              child: Row(
-                children: [
-                  Image.asset('assets/image/Setting.png'),
-                  const SizedBox(width: 13),
-                  const Text("Settings", style: AppFont.textStyle),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const Setting()));
-                          },
-                          child: Image.asset('assets/image/ArrowForwar.png'),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+            ProChoices(
+              txt: 'Change Password',
+              imagePath: 'assets/image/Lock.png',
+              screen: const ChangPass(),
+              context: context,
             ),
-          ),
-        ],
+            ProChoices(
+              txt: 'Settings',
+              imagePath: 'assets/image/Setting.png',
+              screen: const Setting(),
+              context: context,
+            ),
+          ],
+        ),
       ),
     );
   }

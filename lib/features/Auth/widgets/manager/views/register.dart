@@ -1,12 +1,12 @@
 import 'loginScreen.dart';
 import 'package:flutter/material.dart';
-import '../login_cubit/auth_state.dart';
-import '../login_cubit/auth_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utilz/textForm.dart';
 import '../../../../../core/widgets/acountText.dart';
-import '../../../../../core/widgets/imageContainer.dart';
+import '../../../register_cubit/Cubit/auth_state.dart';
+import '../../../register_cubit/Cubit/auth_cubit.dart';
 import '../../../../../core/widgets/elevatedButton.dart';
+import '../../../../../core/widgets/imageContainer.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -14,7 +14,7 @@ class Register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(),
+      create: (context) => RegisterCubit(),
       child: Builder(builder: (context) {
         return Scaffold(
           backgroundColor: const Color(0xffF3F5F4),
@@ -28,11 +28,11 @@ class Register extends StatelessWidget {
               Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Form(
-                      key: LoginCubit.get(context).formKey,
+                      key: RegisterCubit.get(context).formKey,
                       child: Column(children: [
                         TextFormField(
                           controller:
-                              LoginCubit.get(context).usernameController,
+                              RegisterCubit.get(context).usernameController,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your name';
@@ -51,9 +51,10 @@ class Register extends StatelessWidget {
                           height: 20,
                         ),
                         TextFormField(
-                            obscureText: LoginCubit.get(context).showPassword,
+                            obscureText:
+                                RegisterCubit.get(context).showPassword,
                             controller:
-                                LoginCubit.get(context).passwordController,
+                                RegisterCubit.get(context).passwordController,
                             validator: (value) {
                               if (value == null ||
                                   value.isEmpty ||
@@ -68,7 +69,7 @@ class Register extends StatelessWidget {
                               hintText: 'Enter your password',
                               border: TextForm.outlineInputBorder,
                               suffixIcon: IconButton(
-                                  onPressed: LoginCubit.get(context)
+                                  onPressed: RegisterCubit.get(context)
                                       .changePasswordVisibility,
                                   icon: const Icon(Icons.lock)),
                             )),
@@ -76,8 +77,9 @@ class Register extends StatelessWidget {
                           height: 20,
                         ),
                         TextFormField(
-                            obscureText: LoginCubit.get(context).showPassword,
-                            controller: LoginCubit.get(context)
+                            obscureText:
+                                RegisterCubit.get(context).showPassword,
+                            controller: RegisterCubit.get(context)
                                 .confirmPasswordController,
                             validator: (value) {
                               if (value == null ||
@@ -93,7 +95,7 @@ class Register extends StatelessWidget {
                               hintText: 'Confirm your password',
                               border: TextForm.outlineInputBorder,
                               suffixIcon: IconButton(
-                                  onPressed: LoginCubit.get(context)
+                                  onPressed: RegisterCubit.get(context)
                                       .changePasswordVisibility,
                                   icon: const Icon(Icons.lock)),
                             )),
@@ -102,28 +104,27 @@ class Register extends StatelessWidget {
                         ),
                         BlocConsumer(
                           builder: (context, state) {
-                            if (state is LoginLoadState) {
+                            if (state is RegisterLoadState) {
                               return const CircularProgressIndicator();
                             } else {
                               return ElvButton(
                                 onpress: () {
-                                  LoginCubit.get(context).onRegisterPress();
+                                  RegisterCubit.get(context).onRegisterPress();
                                 },
                                 textData: 'Register',
                               );
                             }
                           },
                           listener: (context, state) {
-                            // ignore: avoid_print
                             print(state.toString());
-                            if (state is LoginErrorState) {
+                            if (state is RegisterErrorState) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(state.error),
                                   backgroundColor: Colors.red,
                                 ),
                               );
-                            } else if (state is LoginSuccesState) {
+                            } else if (state is RegisterSuccesState) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Register Success'),

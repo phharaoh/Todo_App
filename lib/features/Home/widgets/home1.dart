@@ -2,8 +2,7 @@ import 'home3.dart';
 import '../../../core/utilz/font.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utilz/color.dart';
-import '../../../core/utilz/appBar.dart';
-
+import '../../../core/widgets/appBar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -34,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-            backgroundColor: AppColor.buttonColor,
+            backgroundColor: AppColor.primaryColor,
             foregroundColor: Colors.white,
             shape: const CircleBorder(),
             onPressed: () {

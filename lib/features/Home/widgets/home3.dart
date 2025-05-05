@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../core/utilz/font.dart';
 import '../../../core/utilz/color.dart';
-import '../../../core/utilz/appBar.dart';
 import '../../../core/widgets/cards.dart';
+import '../../../core/widgets/appBar.dart';
 import '../../../core/widgets/groupTasks.dart';
 import 'package:register_task/features/Home/widgets/TaskView.dart';
 
@@ -22,7 +22,7 @@ class TaskHome extends StatelessWidget {
                   width: 335,
                   height: 135,
                   decoration: BoxDecoration(
-                    color: AppColor.buttonColor,
+                    color: AppColor.primaryColor,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Padding(
@@ -90,7 +90,7 @@ class TaskHome extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-            backgroundColor: AppColor.buttonColor,
+            backgroundColor: AppColor.primaryColor,
             foregroundColor: Colors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),

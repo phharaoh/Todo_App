@@ -1,7 +1,6 @@
 import 'core/utilz/color.dart';
 import 'package:flutter/material.dart';
 import 'features/Home/widgets/home1.dart';
-import 'features/Auth/widgets/manager/views/splash.dart';
 
 void main() {
   runApp(const MyApp());

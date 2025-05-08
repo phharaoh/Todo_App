@@ -1,6 +1,6 @@
 import 'core/utilz/color.dart';
 import 'package:flutter/material.dart';
-import 'features/Home/widgets/home1.dart';
+import 'package:register_task/features/Auth/widgets/manager/views/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }

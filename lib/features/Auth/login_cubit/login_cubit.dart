@@ -1,8 +1,6 @@
 import 'login_state.dart';
-import '../data/repo/user_repo.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:register_task/features/Auth/data/Model/user_model.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(InitLoginState());
@@ -12,7 +10,6 @@ class LoginCubit extends Cubit<LoginState> {
 
   TextEditingController loginNameController = TextEditingController();
   TextEditingController loginPassController = TextEditingController();
-  String? _error;
 
   bool showPass = false;
   void changePassVisible() {
@@ -20,25 +17,8 @@ class LoginCubit extends Cubit<LoginState> {
     emit(ChangePassLoginState());
   }
 
-  UserRepo userRepo = UserRepo();
-
   void onLoginPressed() {
+    formKey.currentState!.validate();
     emit(LoadLoginState());
-    userRepo.register(UserModel(
-        name: loginNameController.text,
-        password: loginPassController.hashCode));
-
-    if (!formKey.currentState!.validate()) {
-      _error = 'Complete the form and fix errors';
-    }
-    if (_error == null) {
-      emit(SuccedLoginState());
-    } else {
-      emit(
-        ErrorLoginState(_error!, error: '$_error'),
-      );
-    }
-    // ignore: avoid_print
-    print(_error);
   }
 }

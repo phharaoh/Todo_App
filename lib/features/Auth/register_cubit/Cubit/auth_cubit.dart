@@ -1,5 +1,4 @@
 import 'auth_state.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import '../../data/repo/user_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,25 +20,21 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(RegisterChangePassState());
   }
 
-  onRegister() {
+  onRegister() async {
     emit(RegisterLoadState());
-    Either<String, void> response = userRepo!.register(UserModel(
+    await Future.delayed(const Duration(seconds: 2));
+    var response = await userRepo!.register(UserModel(
       name: usernameController.text,
       password: passwordController.text,
       confirmPassword: confirmPasswordController.text,
     ));
     response.fold(
       (String error) {
-        emit(RegisterErrorState());
+        emit(RegisterErrorState(errorMessage: error));
       },
       (r) {
         emit(RegisterSuccesState());
       },
     );
   }
-
-  // void onRegisterPress() {
-  //   formKey.currentState!.validate();
-  //   emit(RegisterLoadState());
-  // }
 }

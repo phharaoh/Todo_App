@@ -1,7 +1,8 @@
 import 'login_state.dart';
+import '../data/repo/user_repo.dart';
 import 'package:flutter/widgets.dart';
-import '../../Home/data/models/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:register_task/features/Auth/data/Model/user_model.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(InitLoginState());
@@ -19,13 +20,18 @@ class LoginCubit extends Cubit<LoginState> {
     emit(ChangePassLoginState());
   }
 
+  UserRepo userRepo = UserRepo();
+
   void onLoginPressed() {
     emit(LoadLoginState());
+    userRepo.register(UserModel(
+        name: loginNameController.text,
+        password: loginPassController.hashCode));
+
     if (!formKey.currentState!.validate()) {
       _error = 'Complete the form and fix errors';
     }
     if (_error == null) {
-      UserModel userModel = UserModel(name: loginNameController.text);
       emit(SuccedLoginState());
     } else {
       emit(

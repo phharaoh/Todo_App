@@ -1,9 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 class UserModel {
   String name;
-  int password;
+  String password;
+  String? confirmPassword;
   UserModel({
     required this.name,
     required this.password,
+    this.confirmPassword,
   });
 }

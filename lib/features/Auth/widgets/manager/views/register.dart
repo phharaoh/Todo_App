@@ -8,7 +8,6 @@ import '../../../register_cubit/Cubit/auth_state.dart';
 import '../../../register_cubit/Cubit/auth_cubit.dart';
 import '../../../../../core/widgets/elevatedButton.dart';
 import '../../../../../core/widgets/imageContainer.dart';
-import 'package:register_task/features/Home/widgets/home1.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -18,11 +17,11 @@ class Register extends StatelessWidget {
     return BlocProvider(
       create: (context) => RegisterCubit(),
       child: Builder(builder: (context) {
-        return BlocBuilder<RegisterCubit, RegisterState>(
-          builder: (context, state) {
-            return Scaffold(
-              backgroundColor: const Color(0xffF3F5F4),
-              body: SingleChildScrollView(
+        return Scaffold(
+          backgroundColor: const Color(0xffF3F5F4),
+          body: Builder(
+            builder: (context) {
+              return SingleChildScrollView(
                   child: Column(
                 children: [
                   const Imagecontainer(),
@@ -47,8 +46,7 @@ class Register extends StatelessWidget {
                                 filled: true,
                                 fillColor: Colors.white,
                                 hintText: 'User name',
-                                prefixIcon:
-                                    Image.asset('assets/image/Profile.png'),
+                                prefixIcon: Image.asset('assets/image/Profile.png'),
                                 border: TextForm.outlineInputBorder,
                               ),
                             ),
@@ -58,8 +56,8 @@ class Register extends StatelessWidget {
                             TextFormField(
                                 obscureText:
                                     RegisterCubit.get(context).showPassword,
-                                controller: RegisterCubit.get(context)
-                                    .passwordController,
+                                controller:
+                                    RegisterCubit.get(context).passwordController,
                                 validator: (value) {
                                   if (value == null ||
                                       value.isEmpty ||
@@ -109,10 +107,7 @@ class Register extends StatelessWidget {
                             ),
                             ElvButton(
                               onpress: () {
-                                RegisterCubit.get(context).onRegisterPress();
-                                MyNavigator.goTo(
-                                    context: context,
-                                    screen: const HomeScreen());
+                                RegisterCubit.get(context).onRegister();
                               },
                               textData: 'Register',
                             ),
@@ -123,16 +118,15 @@ class Register extends StatelessWidget {
                               boldTextData: 'Login',
                               onpress: () {
                                 MyNavigator.goTo(
-                                    context: context,
-                                    screen: const LoginScreen());
+                                    context: context, screen: const LoginScreen());
                               },
                               textData: 'Already Have An Account ?',
                             ),
                           ])))
                 ],
-              )),
-            );
-          },
+              ));
+            }
+          ),
         );
       }),
     );

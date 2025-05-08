@@ -8,8 +8,4 @@ class RegisterSuccesState extends RegisterState {}
 
 class RegisterChangePassState extends RegisterState {}
 
-class RegisterErrorState extends RegisterState {
-  final String error;
-
-  RegisterErrorState(String s, {required this.error});
-}
+class RegisterErrorState extends RegisterState {}

@@ -18,92 +18,86 @@ class LoginScreen extends StatelessWidget {
     return BlocProvider(
       create: (contexr) => LoginCubit(),
       child: Builder(builder: (context) {
-        return BlocBuilder<LoginCubit, LoginState>(
-          builder: (context, state) {
-            return Scaffold(
-              body: SingleChildScrollView(
-                  child: Column(
-                children: [
-                  const Imagecontainer(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Form(
-                      key: LoginCubit.get(context).formKey,
-                      child: Column(children: [
-                        TextFormField(
+        return Scaffold(
+          body: Builder(builder: (context) {
+            return SingleChildScrollView(
+                child: Column(
+              children: [
+                const Imagecontainer(),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Form(
+                    key: LoginCubit.get(context).formKey,
+                    child: Column(children: [
+                      TextFormField(
+                        controller: LoginCubit.get(context).loginNameController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your name';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'User name',
+                          prefixIcon: Image.asset('assets/image/Profile.png'),
+                          border: TextForm.outlineInputBorder,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
                           controller:
-                              LoginCubit.get(context).loginNameController,
+                              LoginCubit.get(context).loginPassController,
+                          obscureText: LoginCubit.get(context).showPass,
                           validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your name';
+                            if (value == null ||
+                                value.isEmpty ||
+                                value.length < 6) {
+                              return 'invalid password';
                             }
                             return null;
                           },
                           decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            hintText: 'User name',
-                            prefixIcon: Image.asset('assets/image/Profile.png'),
-                            border: TextForm.outlineInputBorder,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        TextFormField(
-                            controller:
-                                LoginCubit.get(context).loginPassController,
-                            obscureText: LoginCubit.get(context).showPass,
-                            validator: (value) {
-                              if (value == null ||
-                                  value.isEmpty ||
-                                  value.length < 6) {
-                                return 'invalid password';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                hintText: 'Enter your password',
-                                border: TextForm.outlineInputBorder,
-                                suffixIcon: IconButton(
-                                    onPressed: () {
-                                      LoginCubit.get(context)
-                                          .changePassVisible();
-                                    },
-                                    icon: const Icon(Icons.lock)))),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        ElvButton(
-                            onpress: () {
-                              LoginCubit.get(context).onLoginPressed();
-                              MyNavigator.goTo(
-                                  context: context, screen: const HomeScreen());
-                            },
-                            textData: 'Login'),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Acounttext(
-                          boldTextData: 'Register',
+                              filled: true,
+                              fillColor: Colors.white,
+                              hintText: 'Enter your password',
+                              border: TextForm.outlineInputBorder,
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    LoginCubit.get(context).changePassVisible();
+                                  },
+                                  icon: const Icon(Icons.lock)))),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      ElvButton(
                           onpress: () {
-                            MyNavigator.goTo(
-                                context: context, screen: const Register());
+                            LoginCubit.get(context).onLogin();
                           },
-                          textData: 'Create Account',
-                        ),
-                      ]),
-                    ),
-                  )
-                ],
-              )),
-            );
-          },
+                          textData: 'Login'),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Acounttext(
+                        boldTextData: 'Register',
+                        onpress: () {
+                          MyNavigator.goTo(
+                              context: context, screen: const Register());
+                        },
+                        textData: 'Create Account',
+                      ),
+                    ]),
+                  ),
+                )
+              ],
+            ));
+          }),
         );
       }),
     );

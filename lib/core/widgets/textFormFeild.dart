@@ -16,6 +16,7 @@ class TxtFormfld extends StatelessWidget {
           fillColor: Colors.white,
           hintText: hintTxt,
           border: TextForm.outlineInputBorder,
+          
           prefix: prefix),
     );
   }

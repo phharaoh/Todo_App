@@ -4,10 +4,10 @@ import '../../../../../Helper/myNavigator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utilz/textForm.dart';
 import '../../../../../core/widgets/acountText.dart';
-import '../../../register_cubit/Cubit/auth_state.dart';
-import '../../../register_cubit/Cubit/auth_cubit.dart';
 import '../../../../../core/widgets/elevatedButton.dart';
 import '../../../../../core/widgets/imageContainer.dart';
+import '../../../register_cubit/Cubit/register_state.dart';
+import '../../../register_cubit/Cubit/register_cubit.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -113,7 +113,12 @@ class Register extends StatelessWidget {
                                     content: Text(state.errorMessage),
                                   ),
                                 );
-                              } else if (state is RegisterSuccesState) {}
+                              } else if (state is RegisterSuccesState) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(const SnackBar(
+                                  content: Text('Register Success'),
+                                ));
+                              }
                             },
                             builder: (context, state) {
                               if (state is RegisterLoadState) {
@@ -121,7 +126,8 @@ class Register extends StatelessWidget {
                               } else {
                                 return ElvButton(
                                   onpress: () {
-                                    RegisterCubit.get(context).onRegister();
+                                    RegisterCubit.get(context)
+                                        .onRegister(context);
                                   },
                                   textData: 'Register',
                                 );

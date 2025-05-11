@@ -6,6 +6,7 @@ abstract class ElvatbuttonStyle {
     backgroundColor: WidgetStatePropertyAll(AppColor.primaryColor),
     shape: WidgetStatePropertyAll(RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(14.0),
+      
     )),
   );
 }

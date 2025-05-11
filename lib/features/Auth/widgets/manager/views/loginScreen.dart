@@ -1,13 +1,13 @@
+import 'register.dart';
 import 'package:flutter/material.dart';
+import '../../../login_cubit/login_cubit.dart';
 import '../../../login_cubit/login_state.dart';
+import '../../../../../Helper/myNavigator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utilz/textForm.dart';
 import '../../../../../core/widgets/acountText.dart';
-import 'package:register_task/Helper/myNavigator.dart';
 import '../../../../../core/widgets/imageContainer.dart';
 import '../../../../../core/widgets/elevatedButton.dart';
-import 'package:register_task/features/Auth/login_cubit/login_cubit.dart';
-import 'package:register_task/features/Auth/widgets/manager/views/register.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -78,6 +78,11 @@ class LoginScreen extends StatelessWidget {
                       BlocConsumer<LoginCubit, LoginState>(
                         listener: (context, state) {
                           if (state is SuccedLoginState) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Login Successfully'),
+                              ),
+                            );
                           } else if (state is ErrorLoginState) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -92,7 +97,7 @@ class LoginScreen extends StatelessWidget {
                           } else {
                             return ElvButton(
                                 onpress: () {
-                                  LoginCubit.get(context).onLogin();
+                                  LoginCubit.get(context).onLogin(context);
                                 },
                                 textData: 'Login');
                           }

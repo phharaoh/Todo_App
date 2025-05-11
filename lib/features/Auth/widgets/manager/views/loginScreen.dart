@@ -2,12 +2,13 @@ import 'register.dart';
 import 'package:flutter/material.dart';
 import '../../../login_cubit/login_cubit.dart';
 import '../../../login_cubit/login_state.dart';
-import '../../../../../Helper/myNavigator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utilz/textForm.dart';
+import '../../../../../core/Helper/myNavigator.dart';
 import '../../../../../core/widgets/acountText.dart';
 import '../../../../../core/widgets/imageContainer.dart';
 import '../../../../../core/widgets/elevatedButton.dart';
+import 'package:register_task/features/Home/widgets/home1.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -83,6 +84,8 @@ class LoginScreen extends StatelessWidget {
                                 content: Text('Login Successfully'),
                               ),
                             );
+                            MyNavigator.goTo(
+                                context: context, screen: const HomeScreen());
                           } else if (state is ErrorLoginState) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

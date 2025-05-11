@@ -1,13 +1,14 @@
 import 'loginScreen.dart';
 import 'package:flutter/material.dart';
-import '../../../../../Helper/myNavigator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utilz/textForm.dart';
+import '../../../../../core/Helper/myNavigator.dart';
 import '../../../../../core/widgets/acountText.dart';
 import '../../../../../core/widgets/elevatedButton.dart';
 import '../../../../../core/widgets/imageContainer.dart';
 import '../../../register_cubit/Cubit/register_state.dart';
 import '../../../register_cubit/Cubit/register_cubit.dart';
+import 'package:register_task/features/Home/widgets/home1.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -18,7 +19,6 @@ class Register extends StatelessWidget {
       create: (context) => RegisterCubit(),
       child: Builder(builder: (context) {
         return Scaffold(
-          backgroundColor: const Color(0xffF3F5F4),
           body: Builder(builder: (context) {
             return SingleChildScrollView(
                 child: Column(
@@ -118,6 +118,9 @@ class Register extends StatelessWidget {
                                     .showSnackBar(const SnackBar(
                                   content: Text('Register Success'),
                                 ));
+                                MyNavigator.goTo(
+                                    context: context,
+                                    screen: const HomeScreen());
                               }
                             },
                             builder: (context, state) {

@@ -1,8 +1,10 @@
 import 'register_state.dart';
 import 'package:flutter/material.dart';
 import '../../data/repo/user_repo.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:register_task/features/Auth/data/Model/user_model.dart';
+
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitState());
@@ -14,6 +16,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final UserRepo userRepo = UserRepo();
+    XFile? image;
+
   bool showPassword = false;
   void changePasswordVisibility() {
     showPassword = !showPassword;
@@ -21,9 +25,10 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   onRegister(BuildContext context) async {
-    emit(RegisterLoadState());
-    await Future.delayed(const Duration(seconds: 2));
     if (formKey.currentState!.validate()) {
+      emit(RegisterLoadState());
+      await Future.delayed(const Duration(seconds: 2));
+      emit(RegisterSuccesState());
       var response = await userRepo.register(UserModel(
         name: usernameController.text,
         password: passwordController.text,

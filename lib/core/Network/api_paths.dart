@@ -1,6 +1,6 @@
 abstract class ApiPaths {
   static const String baseUrl =
-      'https://ntitodo-production-676c.up.railway.app/api/';
+      'https://ntitodo-api-production.up.railway.app/api/';
   static const String register = 'register';
   static const String login = 'login';
    static const String getUserData = 'get_user_data';

@@ -19,9 +19,10 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   onLogin(BuildContext context) async {
-    emit(LoadLoginState());
-    await Future.delayed(const Duration(seconds: 2));
     if (formKey.currentState!.validate()) {
+      emit(LoadLoginState());
+      await Future.delayed(const Duration(seconds: 2));
+      emit(SuccedLoginState());
       var response = await userRepo.login(
           name: loginNameController.text, password: loginPassController.text);
       response.fold(

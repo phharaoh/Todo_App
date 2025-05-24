@@ -13,7 +13,6 @@ class ApiResponse {
     required this.message,
   });
 
-  // Factory method to handle Dio responses
   factory ApiResponse.fromResponse(Response response) {
     return ApiResponse(
       status: response.data["status"] ?? false,
@@ -23,7 +22,6 @@ class ApiResponse {
     );
   }
 
-  // Factory method to handle Dio or other exceptions
   factory ApiResponse.fromError(dynamic error) {
     // ignore: avoid_print
     print(error.toString());
@@ -33,7 +31,7 @@ class ApiResponse {
         status: false,
         data: error.response?.data,
         statusCode:
-        error.response != null ? error.response!.statusCode ?? 500 : 500,
+            error.response != null ? error.response!.statusCode ?? 500 : 500,
         message: _handleDioError(error),
       );
     } else {
@@ -44,19 +42,6 @@ class ApiResponse {
       );
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   static String _handleDioError(DioException error) {
     switch (error.type) {
@@ -81,10 +66,9 @@ class ApiResponse {
   static String _handleServerError(Response? response) {
     if (response == null) return "No response from server.";
     if (response.data is Map<String, dynamic>) {
-      if (response.data["message"] != null)
-      {
+      if (response.data["message"] != null) {
         print("----- Handle Server Error ${response.data["message"]}");
-        return response.data["message"] ;
+        return response.data["message"];
       }
       return "An error occurred.";
     }

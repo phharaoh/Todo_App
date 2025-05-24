@@ -7,7 +7,7 @@ class ApiHelper {
 
   ApiHelper._init();
   Dio dio = Dio(BaseOptions(
-    baseUrl: ApiPaths.baseUrl,
+    baseUrl: EndPoints.baseUrl,
     connectTimeout: const Duration(seconds: 5),
     receiveTimeout: const Duration(seconds: 5),
   ));

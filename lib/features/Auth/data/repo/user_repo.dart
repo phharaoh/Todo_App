@@ -10,7 +10,7 @@ class UserRepo {
   Future<Either<String, void>> register(UserModel user) async {
     try {
       await apiHelper.postRequest(
-        endPoint: ApiPaths.register,
+        endPoint:EndPoints.register,
         data: {
           "username": user.name,
           "password": user.password,
@@ -24,7 +24,6 @@ class UserRepo {
         }
       }
 
-      print("Error ${e.toString()}");
       return Left(e.toString());
     }
   }
@@ -34,7 +33,7 @@ class UserRepo {
       if (user != null) {
         if (user!.name == name && user!.password == password) {
           await Future.delayed(const Duration(seconds: 2));
-          apiHelper.postRequest(endPoint: ApiPaths.login, data: {
+          apiHelper.postRequest(endPoint: EndPoints.login, data: {
             "username": name,
             "password": password,
           });

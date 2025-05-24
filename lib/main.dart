@@ -1,6 +1,6 @@
 import 'core/utilz/color.dart';
 import 'package:flutter/material.dart';
-import 'package:register_task/features/Auth/widgets/manager/views/splash.dart';
+import 'features/Auth/widgets/manager/views/splash.dart';
 
 void main() {
   runApp(const MyApp());
